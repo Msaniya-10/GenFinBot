@@ -1,0 +1,2948 @@
+[
+    {
+        "user_id": "USR001",
+        "phone_number": "4075752667",
+        "name": "Saksham Zachariah",
+        "age": 56,
+        "income_monthly": 56947,
+        "expenses_monthly": 24504,
+        "loan_status": "Closed",
+        "credit_score": 642,
+        "reminder_preferences": "Weekly",
+        "balance": 26931,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "What is my current account balance?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "160372923",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX1401",
+                "balance": 32806
+            }
+        ]
+    },
+    {
+        "user_id": "USR002",
+        "phone_number": "07574571893",
+        "name": "Mehul Sodhi",
+        "age": 45,
+        "income_monthly": 75388,
+        "expenses_monthly": 65796,
+        "loan_status": "Closed",
+        "credit_score": 689,
+        "reminder_preferences": "Monthly",
+        "balance": 38542,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "459060414",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX1361",
+                "balance": 49393
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX9624",
+                "balance": 38929
+            }
+        ]
+    },
+    {
+        "user_id": "USR003",
+        "phone_number": "04067794659",
+        "name": "Adah Dugar",
+        "age": 31,
+        "income_monthly": 25696,
+        "expenses_monthly": 62657,
+        "loan_status": "Closed",
+        "credit_score": 838,
+        "reminder_preferences": "Weekly",
+        "balance": 6397,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "What is my current account balance?",
+            "When is my credit card bill due?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "757333829",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX7132",
+                "balance": 12460
+            }
+        ]
+    },
+    {
+        "user_id": "USR004",
+        "phone_number": "2925363525",
+        "name": "Madhup Barad",
+        "age": 22,
+        "income_monthly": 88194,
+        "expenses_monthly": 69508,
+        "loan_status": "Active",
+        "credit_score": 676,
+        "reminder_preferences": "Daily",
+        "balance": 37464,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "When is my next EMI due?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "801745935",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX3387",
+                "balance": 32249
+            }
+        ]
+    },
+    {
+        "user_id": "USR005",
+        "phone_number": "02817683202",
+        "name": "Armaan Sood",
+        "age": 56,
+        "income_monthly": 86985,
+        "expenses_monthly": 31338,
+        "loan_status": "None",
+        "credit_score": 722,
+        "reminder_preferences": "Daily",
+        "balance": 25221,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "How can I increase my credit score?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "207456018",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX7114",
+                "balance": 32027
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX5370",
+                "balance": 37128
+            }
+        ]
+    },
+    {
+        "user_id": "USR006",
+        "phone_number": "+917348014916",
+        "name": "Arhaan Shroff",
+        "age": 34,
+        "income_monthly": 74371,
+        "expenses_monthly": 67131,
+        "loan_status": "Active",
+        "credit_score": 691,
+        "reminder_preferences": "Monthly",
+        "balance": 4767,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "Suggest best SIP plans for \u20b95000/month.",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "758711209",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX1398",
+                "balance": 31455
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX8875",
+                "balance": 15681
+            }
+        ]
+    },
+    {
+        "user_id": "USR007",
+        "phone_number": "05580994238",
+        "name": "Ahana  Barad",
+        "age": 50,
+        "income_monthly": 32468,
+        "expenses_monthly": 34668,
+        "loan_status": "None",
+        "credit_score": 724,
+        "reminder_preferences": "Monthly",
+        "balance": 11677,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "Check fixed deposit interest rates.",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "775007659",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX2180",
+                "balance": 15304
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX5884",
+                "balance": 17552
+            }
+        ]
+    },
+    {
+        "user_id": "USR008",
+        "phone_number": "+918604736256",
+        "name": "Raghav Kaur",
+        "age": 31,
+        "income_monthly": 46343,
+        "expenses_monthly": 53489,
+        "loan_status": "None",
+        "credit_score": 805,
+        "reminder_preferences": "Monthly",
+        "balance": 5716,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "What documents are needed for a home loan?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "835907887",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3414",
+                "balance": 12310
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX8508",
+                "balance": 5415
+            }
+        ]
+    },
+    {
+        "user_id": "USR009",
+        "phone_number": "+914341738169",
+        "name": "Yakshit Keer",
+        "age": 41,
+        "income_monthly": 69015,
+        "expenses_monthly": 61377,
+        "loan_status": "Closed",
+        "credit_score": 827,
+        "reminder_preferences": "Daily",
+        "balance": 10680,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "681447664",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX1607",
+                "balance": 7338
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX9456",
+                "balance": 14304
+            }
+        ]
+    },
+    {
+        "user_id": "USR010",
+        "phone_number": "0575057423",
+        "name": "Aarna Kumar",
+        "age": 59,
+        "income_monthly": 46550,
+        "expenses_monthly": 13442,
+        "loan_status": "Active",
+        "credit_score": 660,
+        "reminder_preferences": "Monthly",
+        "balance": 40504,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "How to apply for a personal loan?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "165677596",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX3469",
+                "balance": 8348
+            }
+        ]
+    },
+    {
+        "user_id": "USR011",
+        "phone_number": "+911311583929",
+        "name": "Bhavin Raj",
+        "age": 46,
+        "income_monthly": 83077,
+        "expenses_monthly": 18795,
+        "loan_status": "Active",
+        "credit_score": 718,
+        "reminder_preferences": "Weekly",
+        "balance": 20978,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "What are the top-performing mutual funds?",
+            "How can I increase my credit score?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "755091310",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX2253",
+                "balance": 46149
+            }
+        ]
+    },
+    {
+        "user_id": "USR012",
+        "phone_number": "09062405224",
+        "name": "Alisha Srivastava",
+        "age": 54,
+        "income_monthly": 55800,
+        "expenses_monthly": 29245,
+        "loan_status": "Closed",
+        "credit_score": 755,
+        "reminder_preferences": "Daily",
+        "balance": 20337,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "When is my credit card bill due?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "936428221",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX1634",
+                "balance": 44488
+            }
+        ]
+    },
+    {
+        "user_id": "USR013",
+        "phone_number": "00339216676",
+        "name": "Aayush Arya",
+        "age": 56,
+        "income_monthly": 47657,
+        "expenses_monthly": 32419,
+        "loan_status": "None",
+        "credit_score": 577,
+        "reminder_preferences": "Monthly",
+        "balance": 35328,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "Is it the right time to invest in gold?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "908727058",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX6538",
+                "balance": 3541
+            },
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX1373",
+                "balance": 34170
+            }
+        ]
+    },
+    {
+        "user_id": "USR014",
+        "phone_number": "00788204570",
+        "name": "Jayan Vig",
+        "age": 38,
+        "income_monthly": 45063,
+        "expenses_monthly": 62414,
+        "loan_status": "None",
+        "credit_score": 563,
+        "reminder_preferences": "Weekly",
+        "balance": 3167,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "What is my current account balance?",
+            "Suggest best SIP plans for \u20b95000/month.",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "961852426",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX5936",
+                "balance": 37274
+            }
+        ]
+    },
+    {
+        "user_id": "USR015",
+        "phone_number": "04680553548",
+        "name": "Miraan Sood",
+        "age": 33,
+        "income_monthly": 35644,
+        "expenses_monthly": 18883,
+        "loan_status": "None",
+        "credit_score": 758,
+        "reminder_preferences": "Weekly",
+        "balance": 40041,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "Check fixed deposit interest rates.",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "272818472",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX7532",
+                "balance": 14278
+            }
+        ]
+    },
+    {
+        "user_id": "USR016",
+        "phone_number": "02742997108",
+        "name": "Anvi Mani",
+        "age": 48,
+        "income_monthly": 27608,
+        "expenses_monthly": 54618,
+        "loan_status": "None",
+        "credit_score": 638,
+        "reminder_preferences": "Daily",
+        "balance": 40184,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "What are the top-performing mutual funds?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "224404563",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX7903",
+                "balance": 38814
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6982",
+                "balance": 16487
+            }
+        ]
+    },
+    {
+        "user_id": "USR017",
+        "phone_number": "+911960815412",
+        "name": "Gokul Sabharwal",
+        "age": 33,
+        "income_monthly": 92110,
+        "expenses_monthly": 65690,
+        "loan_status": "Closed",
+        "credit_score": 769,
+        "reminder_preferences": "Weekly",
+        "balance": 6703,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "How can I increase my credit score?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "415584990",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX8968",
+                "balance": 41943
+            }
+        ]
+    },
+    {
+        "user_id": "USR018",
+        "phone_number": "+915332279661",
+        "name": "Ivana Ravi",
+        "age": 35,
+        "income_monthly": 63589,
+        "expenses_monthly": 41373,
+        "loan_status": "Closed",
+        "credit_score": 635,
+        "reminder_preferences": "Weekly",
+        "balance": 36004,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "372129530",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX6697",
+                "balance": 31605
+            }
+        ]
+    },
+    {
+        "user_id": "USR019",
+        "phone_number": "05004444929",
+        "name": "Ahana  Shukla",
+        "age": 44,
+        "income_monthly": 79879,
+        "expenses_monthly": 64254,
+        "loan_status": "Closed",
+        "credit_score": 620,
+        "reminder_preferences": "Daily",
+        "balance": 5210,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "What is my current account balance?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "858033417",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX1137",
+                "balance": 13259
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX8794",
+                "balance": 45535
+            }
+        ]
+    },
+    {
+        "user_id": "USR020",
+        "phone_number": "09511998504",
+        "name": "Nishith Sule",
+        "age": 49,
+        "income_monthly": 59209,
+        "expenses_monthly": 22644,
+        "loan_status": "None",
+        "credit_score": 644,
+        "reminder_preferences": "Monthly",
+        "balance": 43777,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "What is my current account balance?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "136061247",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX2283",
+                "balance": 12437
+            }
+        ]
+    },
+    {
+        "user_id": "USR021",
+        "phone_number": "6973006474",
+        "name": "Tejas Kuruvilla",
+        "age": 47,
+        "income_monthly": 89105,
+        "expenses_monthly": 10960,
+        "loan_status": "Closed",
+        "credit_score": 823,
+        "reminder_preferences": "Monthly",
+        "balance": 29238,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "When is my credit card bill due?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "645920201",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3606",
+                "balance": 38987
+            },
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX5401",
+                "balance": 11646
+            }
+        ]
+    },
+    {
+        "user_id": "USR022",
+        "phone_number": "09069124950",
+        "name": "Siya Borde",
+        "age": 51,
+        "income_monthly": 81612,
+        "expenses_monthly": 52491,
+        "loan_status": "Closed",
+        "credit_score": 558,
+        "reminder_preferences": "Weekly",
+        "balance": 12618,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "What documents are needed for a home loan?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "149712592",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX8205",
+                "balance": 31161
+            }
+        ]
+    },
+    {
+        "user_id": "USR023",
+        "phone_number": "+915152608758",
+        "name": "Hansh Lal",
+        "age": 47,
+        "income_monthly": 44929,
+        "expenses_monthly": 10413,
+        "loan_status": "None",
+        "credit_score": 755,
+        "reminder_preferences": "Weekly",
+        "balance": 46540,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "How to apply for a personal loan?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "985671586",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX1322",
+                "balance": 42795
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX4289",
+                "balance": 24765
+            }
+        ]
+    },
+    {
+        "user_id": "USR024",
+        "phone_number": "+913004139233",
+        "name": "Prerak Gara",
+        "age": 36,
+        "income_monthly": 31820,
+        "expenses_monthly": 54779,
+        "loan_status": "Closed",
+        "credit_score": 631,
+        "reminder_preferences": "Daily",
+        "balance": 17536,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "How can I increase my credit score?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "549572872",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX3958",
+                "balance": 9068
+            }
+        ]
+    },
+    {
+        "user_id": "USR025",
+        "phone_number": "+916171920927",
+        "name": "Siya Guha",
+        "age": 39,
+        "income_monthly": 62531,
+        "expenses_monthly": 68597,
+        "loan_status": "None",
+        "credit_score": 740,
+        "reminder_preferences": "Weekly",
+        "balance": 24264,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "What are the top-performing mutual funds?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "819542269",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX2835",
+                "balance": 17595
+            }
+        ]
+    },
+    {
+        "user_id": "USR026",
+        "phone_number": "+916252954035",
+        "name": "Jayan Bail",
+        "age": 24,
+        "income_monthly": 87664,
+        "expenses_monthly": 45176,
+        "loan_status": "Active",
+        "credit_score": 630,
+        "reminder_preferences": "Monthly",
+        "balance": 37324,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "How to apply for a personal loan?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "810971152",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX3418",
+                "balance": 32154
+            },
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX8262",
+                "balance": 5067
+            }
+        ]
+    },
+    {
+        "user_id": "USR027",
+        "phone_number": "+913376339665",
+        "name": "Adah Sood",
+        "age": 23,
+        "income_monthly": 74559,
+        "expenses_monthly": 45986,
+        "loan_status": "Active",
+        "credit_score": 704,
+        "reminder_preferences": "Daily",
+        "balance": 16136,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "When is my credit card bill due?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "869445892",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX4396",
+                "balance": 12905
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX5690",
+                "balance": 13408
+            }
+        ]
+    },
+    {
+        "user_id": "USR028",
+        "phone_number": "5255604935",
+        "name": "Miraya Singh",
+        "age": 57,
+        "income_monthly": 93966,
+        "expenses_monthly": 21433,
+        "loan_status": "Active",
+        "credit_score": 826,
+        "reminder_preferences": "Monthly",
+        "balance": 1301,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "How can I increase my credit score?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "576438736",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX1834",
+                "balance": 23145
+            }
+        ]
+    },
+    {
+        "user_id": "USR029",
+        "phone_number": "08143838405",
+        "name": "Aaryahi Aurora",
+        "age": 23,
+        "income_monthly": 56071,
+        "expenses_monthly": 58090,
+        "loan_status": "Active",
+        "credit_score": 808,
+        "reminder_preferences": "Daily",
+        "balance": 46024,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "What is my current account balance?",
+            "When is my next EMI due?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "159197164",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX5570",
+                "balance": 4462
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX9398",
+                "balance": 10806
+            }
+        ]
+    },
+    {
+        "user_id": "USR030",
+        "phone_number": "04737104564",
+        "name": "Umang Raman",
+        "age": 40,
+        "income_monthly": 85586,
+        "expenses_monthly": 45856,
+        "loan_status": "Active",
+        "credit_score": 628,
+        "reminder_preferences": "Monthly",
+        "balance": 25029,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "How to apply for a personal loan?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "539762394",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX9778",
+                "balance": 13546
+            }
+        ]
+    },
+    {
+        "user_id": "USR031",
+        "phone_number": "+911923402024",
+        "name": "Sahil Grover",
+        "age": 47,
+        "income_monthly": 85419,
+        "expenses_monthly": 10381,
+        "loan_status": "Closed",
+        "credit_score": 557,
+        "reminder_preferences": "Weekly",
+        "balance": 26831,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "Suggest best SIP plans for \u20b95000/month.",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "877070960",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX8399",
+                "balance": 10094
+            }
+        ]
+    },
+    {
+        "user_id": "USR032",
+        "phone_number": "1115707848",
+        "name": "Oorja Bassi",
+        "age": 27,
+        "income_monthly": 73237,
+        "expenses_monthly": 56767,
+        "loan_status": "Active",
+        "credit_score": 730,
+        "reminder_preferences": "Monthly",
+        "balance": 32165,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "When is my next EMI due?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "835077151",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX5670",
+                "balance": 7674
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX1225",
+                "balance": 39550
+            }
+        ]
+    },
+    {
+        "user_id": "USR033",
+        "phone_number": "06738185787",
+        "name": "Siya Sarkar",
+        "age": 56,
+        "income_monthly": 63817,
+        "expenses_monthly": 20119,
+        "loan_status": "Closed",
+        "credit_score": 550,
+        "reminder_preferences": "Monthly",
+        "balance": 11426,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "Is it the right time to invest in gold?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "530756687",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX8951",
+                "balance": 14088
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX2280",
+                "balance": 25385
+            }
+        ]
+    },
+    {
+        "user_id": "USR034",
+        "phone_number": "+912078383392",
+        "name": "Sumer Kulkarni",
+        "age": 40,
+        "income_monthly": 31758,
+        "expenses_monthly": 28071,
+        "loan_status": "Active",
+        "credit_score": 773,
+        "reminder_preferences": "Daily",
+        "balance": 10363,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "What are the top-performing mutual funds?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "551615424",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX5340",
+                "balance": 32716
+            }
+        ]
+    },
+    {
+        "user_id": "USR035",
+        "phone_number": "7458326100",
+        "name": "Anahi Ahluwalia",
+        "age": 23,
+        "income_monthly": 48715,
+        "expenses_monthly": 51021,
+        "loan_status": "Active",
+        "credit_score": 574,
+        "reminder_preferences": "Daily",
+        "balance": 19381,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "What is my current account balance?",
+            "What are the top-performing mutual funds?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "247097629",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX9711",
+                "balance": 2978
+            },
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX9395",
+                "balance": 44914
+            }
+        ]
+    },
+    {
+        "user_id": "USR036",
+        "phone_number": "06247330541",
+        "name": "Zeeshan Jain",
+        "age": 44,
+        "income_monthly": 84665,
+        "expenses_monthly": 61219,
+        "loan_status": "Closed",
+        "credit_score": 669,
+        "reminder_preferences": "Weekly",
+        "balance": 35421,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "When is my next EMI due?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "885438830",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX3193",
+                "balance": 16396
+            }
+        ]
+    },
+    {
+        "user_id": "USR037",
+        "phone_number": "3524633170",
+        "name": "Kashvi Chandra",
+        "age": 38,
+        "income_monthly": 50913,
+        "expenses_monthly": 23038,
+        "loan_status": "Closed",
+        "credit_score": 776,
+        "reminder_preferences": "Monthly",
+        "balance": 33754,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "What is my current account balance?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "116464319",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX9932",
+                "balance": 6983
+            }
+        ]
+    },
+    {
+        "user_id": "USR038",
+        "phone_number": "09362876494",
+        "name": "Amani Khare",
+        "age": 34,
+        "income_monthly": 97177,
+        "expenses_monthly": 40133,
+        "loan_status": "None",
+        "credit_score": 740,
+        "reminder_preferences": "Monthly",
+        "balance": 36960,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "How to apply for a personal loan?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "237606969",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6700",
+                "balance": 3688
+            }
+        ]
+    },
+    {
+        "user_id": "USR039",
+        "phone_number": "05581193866",
+        "name": "Lagan Buch",
+        "age": 55,
+        "income_monthly": 58488,
+        "expenses_monthly": 62534,
+        "loan_status": "None",
+        "credit_score": 621,
+        "reminder_preferences": "Monthly",
+        "balance": 46790,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "Is it the right time to invest in gold?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "244114160",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3600",
+                "balance": 38529
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX6727",
+                "balance": 6908
+            }
+        ]
+    },
+    {
+        "user_id": "USR040",
+        "phone_number": "00066787406",
+        "name": "Kartik Chandran",
+        "age": 57,
+        "income_monthly": 88587,
+        "expenses_monthly": 63359,
+        "loan_status": "Closed",
+        "credit_score": 605,
+        "reminder_preferences": "Weekly",
+        "balance": 21746,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "Is it the right time to invest in gold?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "575741318",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX6051",
+                "balance": 32187
+            }
+        ]
+    },
+    {
+        "user_id": "USR041",
+        "phone_number": "7323370373",
+        "name": "Himmat Majumdar",
+        "age": 41,
+        "income_monthly": 35407,
+        "expenses_monthly": 12586,
+        "loan_status": "Closed",
+        "credit_score": 749,
+        "reminder_preferences": "Monthly",
+        "balance": 32936,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "Check fixed deposit interest rates.",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "630959175",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX7741",
+                "balance": 4316
+            }
+        ]
+    },
+    {
+        "user_id": "USR042",
+        "phone_number": "+913586980123",
+        "name": "Divyansh Keer",
+        "age": 36,
+        "income_monthly": 98155,
+        "expenses_monthly": 46107,
+        "loan_status": "Active",
+        "credit_score": 665,
+        "reminder_preferences": "Daily",
+        "balance": 40121,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "What documents are needed for a home loan?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "349061243",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX3130",
+                "balance": 30291
+            }
+        ]
+    },
+    {
+        "user_id": "USR043",
+        "phone_number": "09647424049",
+        "name": "Shanaya Aurora",
+        "age": 37,
+        "income_monthly": 48983,
+        "expenses_monthly": 51582,
+        "loan_status": "None",
+        "credit_score": 749,
+        "reminder_preferences": "Daily",
+        "balance": 7419,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "What is my current account balance?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "771970018",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX7252",
+                "balance": 19499
+            }
+        ]
+    },
+    {
+        "user_id": "USR044",
+        "phone_number": "+915041509355",
+        "name": "Rania Kuruvilla",
+        "age": 35,
+        "income_monthly": 73854,
+        "expenses_monthly": 66327,
+        "loan_status": "Active",
+        "credit_score": 614,
+        "reminder_preferences": "Monthly",
+        "balance": 39195,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "Suggest best SIP plans for \u20b95000/month.",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "749638073",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX9589",
+                "balance": 1125
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3676",
+                "balance": 19221
+            }
+        ]
+    },
+    {
+        "user_id": "USR045",
+        "phone_number": "06565269870",
+        "name": "Biju Kari",
+        "age": 36,
+        "income_monthly": 51335,
+        "expenses_monthly": 63587,
+        "loan_status": "Closed",
+        "credit_score": 657,
+        "reminder_preferences": "Monthly",
+        "balance": 21389,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "What documents are needed for a home loan?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "470246355",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX2529",
+                "balance": 35358
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX4325",
+                "balance": 6391
+            }
+        ]
+    },
+    {
+        "user_id": "USR046",
+        "phone_number": "0032148140",
+        "name": "Ahana  Kala",
+        "age": 37,
+        "income_monthly": 43464,
+        "expenses_monthly": 54981,
+        "loan_status": "Active",
+        "credit_score": 710,
+        "reminder_preferences": "Monthly",
+        "balance": 48436,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "What is my current account balance?",
+            "Is it the right time to invest in gold?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "209031344",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6493",
+                "balance": 26073
+            }
+        ]
+    },
+    {
+        "user_id": "USR047",
+        "phone_number": "1407038883",
+        "name": "Bhamini Vohra",
+        "age": 42,
+        "income_monthly": 96943,
+        "expenses_monthly": 10637,
+        "loan_status": "None",
+        "credit_score": 789,
+        "reminder_preferences": "Daily",
+        "balance": 5676,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "What documents are needed for a home loan?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "829453618",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX4188",
+                "balance": 3919
+            }
+        ]
+    },
+    {
+        "user_id": "USR048",
+        "phone_number": "3815819114",
+        "name": "Kaira Dixit",
+        "age": 42,
+        "income_monthly": 42463,
+        "expenses_monthly": 54908,
+        "loan_status": "None",
+        "credit_score": 610,
+        "reminder_preferences": "Daily",
+        "balance": 20595,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "How can I increase my credit score?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "198545680",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3796",
+                "balance": 6959
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX4772",
+                "balance": 16174
+            }
+        ]
+    },
+    {
+        "user_id": "USR049",
+        "phone_number": "04063685204",
+        "name": "Aarav Ravi",
+        "age": 36,
+        "income_monthly": 49440,
+        "expenses_monthly": 32315,
+        "loan_status": "Closed",
+        "credit_score": 795,
+        "reminder_preferences": "Daily",
+        "balance": 20734,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "When is my next EMI due?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "672339978",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX5489",
+                "balance": 23194
+            }
+        ]
+    },
+    {
+        "user_id": "USR050",
+        "phone_number": "+913352702715",
+        "name": "Ritvik Mahal",
+        "age": 29,
+        "income_monthly": 93429,
+        "expenses_monthly": 17620,
+        "loan_status": "Active",
+        "credit_score": 720,
+        "reminder_preferences": "Monthly",
+        "balance": 42171,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "When is my credit card bill due?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "310945537",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX4062",
+                "balance": 9464
+            }
+        ]
+    },
+    {
+        "user_id": "USR051",
+        "phone_number": "+915480320712",
+        "name": "Aaryahi Sarma",
+        "age": 54,
+        "income_monthly": 69383,
+        "expenses_monthly": 57049,
+        "loan_status": "Active",
+        "credit_score": 808,
+        "reminder_preferences": "Weekly",
+        "balance": 19668,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "556402755",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6823",
+                "balance": 1697
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX7041",
+                "balance": 47308
+            }
+        ]
+    },
+    {
+        "user_id": "USR052",
+        "phone_number": "2851989803",
+        "name": "Tiya Amble",
+        "age": 35,
+        "income_monthly": 82421,
+        "expenses_monthly": 50050,
+        "loan_status": "Active",
+        "credit_score": 668,
+        "reminder_preferences": "Daily",
+        "balance": 31648,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "When is my next EMI due?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "205858085",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX1298",
+                "balance": 31285
+            }
+        ]
+    },
+    {
+        "user_id": "USR053",
+        "phone_number": "3921388525",
+        "name": "Reyansh Lad",
+        "age": 36,
+        "income_monthly": 73279,
+        "expenses_monthly": 44408,
+        "loan_status": "Active",
+        "credit_score": 792,
+        "reminder_preferences": "Daily",
+        "balance": 42399,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "What documents are needed for a home loan?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "713727942",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX5876",
+                "balance": 31126
+            }
+        ]
+    },
+    {
+        "user_id": "USR054",
+        "phone_number": "7143441891",
+        "name": "Seher Maharaj",
+        "age": 40,
+        "income_monthly": 73006,
+        "expenses_monthly": 59163,
+        "loan_status": "None",
+        "credit_score": 622,
+        "reminder_preferences": "Daily",
+        "balance": 40774,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "Is it the right time to invest in gold?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "735065850",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX7176",
+                "balance": 43685
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX6803",
+                "balance": 47761
+            }
+        ]
+    },
+    {
+        "user_id": "USR055",
+        "phone_number": "+914727493665",
+        "name": "Azad Choudhary",
+        "age": 22,
+        "income_monthly": 96411,
+        "expenses_monthly": 64511,
+        "loan_status": "None",
+        "credit_score": 790,
+        "reminder_preferences": "Daily",
+        "balance": 12406,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "What are the top-performing mutual funds?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "489134916",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX4464",
+                "balance": 22003
+            }
+        ]
+    },
+    {
+        "user_id": "USR056",
+        "phone_number": "2832860855",
+        "name": "Tejas Divan",
+        "age": 46,
+        "income_monthly": 69479,
+        "expenses_monthly": 33279,
+        "loan_status": "Active",
+        "credit_score": 700,
+        "reminder_preferences": "Monthly",
+        "balance": 41274,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "How to apply for a personal loan?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "154130415",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX9344",
+                "balance": 25239
+            }
+        ]
+    },
+    {
+        "user_id": "USR057",
+        "phone_number": "6414181715",
+        "name": "Anahita Bajwa",
+        "age": 37,
+        "income_monthly": 59724,
+        "expenses_monthly": 49703,
+        "loan_status": "Closed",
+        "credit_score": 758,
+        "reminder_preferences": "Weekly",
+        "balance": 37238,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "Check fixed deposit interest rates.",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "363629482",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3049",
+                "balance": 28740
+            }
+        ]
+    },
+    {
+        "user_id": "USR058",
+        "phone_number": "3581253482",
+        "name": "Mannat Barad",
+        "age": 29,
+        "income_monthly": 93193,
+        "expenses_monthly": 56301,
+        "loan_status": "None",
+        "credit_score": 608,
+        "reminder_preferences": "Weekly",
+        "balance": 29112,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "Suggest best SIP plans for \u20b95000/month.",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "315391451",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX1242",
+                "balance": 30577
+            }
+        ]
+    },
+    {
+        "user_id": "USR059",
+        "phone_number": "+917858984402",
+        "name": "Seher Jayaraman",
+        "age": 39,
+        "income_monthly": 44232,
+        "expenses_monthly": 56711,
+        "loan_status": "Closed",
+        "credit_score": 691,
+        "reminder_preferences": "Daily",
+        "balance": 17246,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "How can I increase my credit score?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "996278416",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX1713",
+                "balance": 41476
+            }
+        ]
+    },
+    {
+        "user_id": "USR060",
+        "phone_number": "+913221062717",
+        "name": "Lagan Halder",
+        "age": 39,
+        "income_monthly": 64032,
+        "expenses_monthly": 58411,
+        "loan_status": "Closed",
+        "credit_score": 568,
+        "reminder_preferences": "Monthly",
+        "balance": 29319,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "Is it the right time to invest in gold?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "630976084",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX6139",
+                "balance": 33531
+            }
+        ]
+    },
+    {
+        "user_id": "USR061",
+        "phone_number": "2220155699",
+        "name": "Mehul Bava",
+        "age": 48,
+        "income_monthly": 81873,
+        "expenses_monthly": 11119,
+        "loan_status": "None",
+        "credit_score": 843,
+        "reminder_preferences": "Daily",
+        "balance": 20903,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "Is it the right time to invest in gold?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "984036661",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX5047",
+                "balance": 1519
+            },
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX9191",
+                "balance": 13226
+            }
+        ]
+    },
+    {
+        "user_id": "USR062",
+        "phone_number": "+910652095938",
+        "name": "Mahika Ganesan",
+        "age": 49,
+        "income_monthly": 77730,
+        "expenses_monthly": 30761,
+        "loan_status": "Active",
+        "credit_score": 649,
+        "reminder_preferences": "Daily",
+        "balance": 38056,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "775274428",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX2369",
+                "balance": 12417
+            },
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX2587",
+                "balance": 31948
+            }
+        ]
+    },
+    {
+        "user_id": "USR063",
+        "phone_number": "1533907317",
+        "name": "Anya Sangha",
+        "age": 22,
+        "income_monthly": 47286,
+        "expenses_monthly": 44675,
+        "loan_status": "Closed",
+        "credit_score": 718,
+        "reminder_preferences": "Monthly",
+        "balance": 12740,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "How to apply for a personal loan?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "719140671",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX8589",
+                "balance": 15945
+            }
+        ]
+    },
+    {
+        "user_id": "USR064",
+        "phone_number": "8602777816",
+        "name": "Aarna Shere",
+        "age": 56,
+        "income_monthly": 28027,
+        "expenses_monthly": 17193,
+        "loan_status": "Active",
+        "credit_score": 565,
+        "reminder_preferences": "Weekly",
+        "balance": 25438,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "When is my next EMI due?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "859283806",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6547",
+                "balance": 10883
+            },
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX8881",
+                "balance": 16067
+            }
+        ]
+    },
+    {
+        "user_id": "USR065",
+        "phone_number": "7592408470",
+        "name": "Miraan Sabharwal",
+        "age": 29,
+        "income_monthly": 25220,
+        "expenses_monthly": 56289,
+        "loan_status": "Closed",
+        "credit_score": 584,
+        "reminder_preferences": "Daily",
+        "balance": 3714,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "What are the top-performing mutual funds?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "934727112",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX8913",
+                "balance": 26135
+            }
+        ]
+    },
+    {
+        "user_id": "USR066",
+        "phone_number": "04465315328",
+        "name": "Adira Deshmukh",
+        "age": 23,
+        "income_monthly": 92883,
+        "expenses_monthly": 58663,
+        "loan_status": "None",
+        "credit_score": 613,
+        "reminder_preferences": "Weekly",
+        "balance": 26480,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "What documents are needed for a home loan?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "255853611",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX4647",
+                "balance": 19515
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX5385",
+                "balance": 26593
+            }
+        ]
+    },
+    {
+        "user_id": "USR067",
+        "phone_number": "+916519571935",
+        "name": "Charvi Ghose",
+        "age": 48,
+        "income_monthly": 35967,
+        "expenses_monthly": 44135,
+        "loan_status": "Closed",
+        "credit_score": 562,
+        "reminder_preferences": "Daily",
+        "balance": 17529,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "710040662",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6065",
+                "balance": 20648
+            }
+        ]
+    },
+    {
+        "user_id": "USR068",
+        "phone_number": "3693324094",
+        "name": "Faiyaz Dey",
+        "age": 27,
+        "income_monthly": 43233,
+        "expenses_monthly": 52253,
+        "loan_status": "None",
+        "credit_score": 614,
+        "reminder_preferences": "Monthly",
+        "balance": 33601,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "What are the top-performing mutual funds?",
+            "When is my credit card bill due?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "823810334",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX7317",
+                "balance": 6769
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX5991",
+                "balance": 46551
+            }
+        ]
+    },
+    {
+        "user_id": "USR069",
+        "phone_number": "03858949087",
+        "name": "Anaya Gola",
+        "age": 33,
+        "income_monthly": 46854,
+        "expenses_monthly": 64373,
+        "loan_status": "Active",
+        "credit_score": 750,
+        "reminder_preferences": "Daily",
+        "balance": 44174,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "What is my current account balance?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "150162595",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX7778",
+                "balance": 9380
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX4456",
+                "balance": 5541
+            }
+        ]
+    },
+    {
+        "user_id": "USR070",
+        "phone_number": "06480601031",
+        "name": "Suhana Barman",
+        "age": 32,
+        "income_monthly": 83435,
+        "expenses_monthly": 10572,
+        "loan_status": "Closed",
+        "credit_score": 567,
+        "reminder_preferences": "Daily",
+        "balance": 20816,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "When is my credit card bill due?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "827493388",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX5396",
+                "balance": 30741
+            }
+        ]
+    },
+    {
+        "user_id": "USR071",
+        "phone_number": "06057430170",
+        "name": "Tiya Uppal",
+        "age": 56,
+        "income_monthly": 74190,
+        "expenses_monthly": 38763,
+        "loan_status": "None",
+        "credit_score": 573,
+        "reminder_preferences": "Daily",
+        "balance": 12923,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "When is my credit card bill due?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "409147944",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX2626",
+                "balance": 13297
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX2016",
+                "balance": 4427
+            }
+        ]
+    },
+    {
+        "user_id": "USR072",
+        "phone_number": "+917271087843",
+        "name": "Kiara Chhabra",
+        "age": 47,
+        "income_monthly": 88849,
+        "expenses_monthly": 16784,
+        "loan_status": "None",
+        "credit_score": 760,
+        "reminder_preferences": "Weekly",
+        "balance": 19223,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "Check fixed deposit interest rates.",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "664864315",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6890",
+                "balance": 47405
+            }
+        ]
+    },
+    {
+        "user_id": "USR073",
+        "phone_number": "+917849398626",
+        "name": "Nitya Dubey",
+        "age": 41,
+        "income_monthly": 34257,
+        "expenses_monthly": 44563,
+        "loan_status": "Closed",
+        "credit_score": 650,
+        "reminder_preferences": "Monthly",
+        "balance": 6380,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "Suggest best SIP plans for \u20b95000/month.",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "914121666",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX4790",
+                "balance": 24563
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX5336",
+                "balance": 31570
+            }
+        ]
+    },
+    {
+        "user_id": "USR074",
+        "phone_number": "05625349891",
+        "name": "Ivana Gour",
+        "age": 50,
+        "income_monthly": 56003,
+        "expenses_monthly": 67737,
+        "loan_status": "None",
+        "credit_score": 642,
+        "reminder_preferences": "Daily",
+        "balance": 11348,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "Check fixed deposit interest rates.",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "599549224",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX9096",
+                "balance": 34070
+            }
+        ]
+    },
+    {
+        "user_id": "USR075",
+        "phone_number": "00684786823",
+        "name": "Devansh Dhar",
+        "age": 49,
+        "income_monthly": 26423,
+        "expenses_monthly": 64459,
+        "loan_status": "Closed",
+        "credit_score": 771,
+        "reminder_preferences": "Monthly",
+        "balance": 15743,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "What are the top-performing mutual funds?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "522839696",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Savings",
+                "account_number": "XXXX9691",
+                "balance": 38993
+            },
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX3065",
+                "balance": 36092
+            }
+        ]
+    },
+    {
+        "user_id": "USR076",
+        "phone_number": "7760463114",
+        "name": "Veer Samra",
+        "age": 22,
+        "income_monthly": 35343,
+        "expenses_monthly": 64760,
+        "loan_status": "Active",
+        "credit_score": 606,
+        "reminder_preferences": "Weekly",
+        "balance": 5348,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "958272910",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX5323",
+                "balance": 24467
+            }
+        ]
+    },
+    {
+        "user_id": "USR077",
+        "phone_number": "01174961246",
+        "name": "Kavya Walia",
+        "age": 50,
+        "income_monthly": 34179,
+        "expenses_monthly": 21685,
+        "loan_status": "Active",
+        "credit_score": 843,
+        "reminder_preferences": "Weekly",
+        "balance": 31427,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "What are the top-performing mutual funds?",
+            "When is my next EMI due?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "823465698",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX9023",
+                "balance": 29570
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX1560",
+                "balance": 41647
+            }
+        ]
+    },
+    {
+        "user_id": "USR078",
+        "phone_number": "8812067246",
+        "name": "Vaibhav Chatterjee",
+        "age": 48,
+        "income_monthly": 99679,
+        "expenses_monthly": 62625,
+        "loan_status": "Closed",
+        "credit_score": 642,
+        "reminder_preferences": "Weekly",
+        "balance": 49882,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "When is my credit card bill due?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "596799093",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX2442",
+                "balance": 36147
+            }
+        ]
+    },
+    {
+        "user_id": "USR079",
+        "phone_number": "+916213671817",
+        "name": "Ranbir Barman",
+        "age": 55,
+        "income_monthly": 65517,
+        "expenses_monthly": 15908,
+        "loan_status": "Closed",
+        "credit_score": 600,
+        "reminder_preferences": "Weekly",
+        "balance": 39523,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "How can I increase my credit score?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "683303249",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX2244",
+                "balance": 15024
+            }
+        ]
+    },
+    {
+        "user_id": "USR080",
+        "phone_number": "4480043919",
+        "name": "Jivika Keer",
+        "age": 21,
+        "income_monthly": 99812,
+        "expenses_monthly": 58641,
+        "loan_status": "None",
+        "credit_score": 772,
+        "reminder_preferences": "Daily",
+        "balance": 46864,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Check fixed deposit interest rates.",
+            "What are the top-performing mutual funds?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "362903218",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX2131",
+                "balance": 30893
+            }
+        ]
+    },
+    {
+        "user_id": "USR081",
+        "phone_number": "07808555319",
+        "name": "Shanaya Vasa",
+        "age": 47,
+        "income_monthly": 28885,
+        "expenses_monthly": 26140,
+        "loan_status": "Active",
+        "credit_score": 716,
+        "reminder_preferences": "Weekly",
+        "balance": 27967,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "What are the top-performing mutual funds?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "882214898",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX4586",
+                "balance": 21244
+            }
+        ]
+    },
+    {
+        "user_id": "USR082",
+        "phone_number": "2549029362",
+        "name": "Tejas Bose",
+        "age": 30,
+        "income_monthly": 34736,
+        "expenses_monthly": 20262,
+        "loan_status": "Active",
+        "credit_score": 726,
+        "reminder_preferences": "Monthly",
+        "balance": 7775,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "When is my credit card bill due?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "950841576",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX2320",
+                "balance": 14011
+            }
+        ]
+    },
+    {
+        "user_id": "USR083",
+        "phone_number": "5774085006",
+        "name": "Ela Grover",
+        "age": 54,
+        "income_monthly": 28493,
+        "expenses_monthly": 24011,
+        "loan_status": "Active",
+        "credit_score": 672,
+        "reminder_preferences": "Daily",
+        "balance": 25712,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "When is my credit card bill due?",
+            "Is it the right time to invest in gold?",
+            "How to close my account in HDFC Bank?"
+        ],
+        "telegram_id": "944337575",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6331",
+                "balance": 46409
+            }
+        ]
+    },
+    {
+        "user_id": "USR084",
+        "phone_number": "05267335434",
+        "name": "Damini Bose",
+        "age": 52,
+        "income_monthly": 62578,
+        "expenses_monthly": 16122,
+        "loan_status": "Closed",
+        "credit_score": 667,
+        "reminder_preferences": "Monthly",
+        "balance": 37678,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "How can I increase my credit score?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "625005221",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX6643",
+                "balance": 21569
+            }
+        ]
+    },
+    {
+        "user_id": "USR085",
+        "phone_number": "8998568982",
+        "name": "Biju Divan",
+        "age": 59,
+        "income_monthly": 70516,
+        "expenses_monthly": 62548,
+        "loan_status": "None",
+        "credit_score": 789,
+        "reminder_preferences": "Daily",
+        "balance": 26972,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "How can I increase my credit score?",
+            "What documents are needed for a home loan?",
+            "When is my EMI due in SBI?"
+        ],
+        "telegram_id": "457231444",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX9472",
+                "balance": 41461
+            }
+        ]
+    },
+    {
+        "user_id": "USR086",
+        "phone_number": "08548434817",
+        "name": "Ishita Chopra",
+        "age": 40,
+        "income_monthly": 89321,
+        "expenses_monthly": 63897,
+        "loan_status": "Closed",
+        "credit_score": 735,
+        "reminder_preferences": "Weekly",
+        "balance": 30226,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "Is it the right time to invest in gold?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "510845012",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX2483",
+                "balance": 33881
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX6311",
+                "balance": 5686
+            }
+        ]
+    },
+    {
+        "user_id": "USR087",
+        "phone_number": "07763002394",
+        "name": "Shlok Srinivas",
+        "age": 27,
+        "income_monthly": 44340,
+        "expenses_monthly": 26956,
+        "loan_status": "Active",
+        "credit_score": 763,
+        "reminder_preferences": "Daily",
+        "balance": 39008,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "When is my credit card bill due?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "984006748",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6183",
+                "balance": 27732
+            }
+        ]
+    },
+    {
+        "user_id": "USR088",
+        "phone_number": "+912750393926",
+        "name": "Shamik Bera",
+        "age": 49,
+        "income_monthly": 63522,
+        "expenses_monthly": 14349,
+        "loan_status": "None",
+        "credit_score": 598,
+        "reminder_preferences": "Monthly",
+        "balance": 18625,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "Check fixed deposit interest rates.",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "126904316",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX9035",
+                "balance": 31212
+            }
+        ]
+    },
+    {
+        "user_id": "USR089",
+        "phone_number": "08876426389",
+        "name": "Mohanlal Rau",
+        "age": 55,
+        "income_monthly": 47591,
+        "expenses_monthly": 15142,
+        "loan_status": "Active",
+        "credit_score": 763,
+        "reminder_preferences": "Monthly",
+        "balance": 4632,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "What documents are needed for a home loan?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "747522803",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3688",
+                "balance": 31147
+            },
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX5623",
+                "balance": 5399
+            }
+        ]
+    },
+    {
+        "user_id": "USR090",
+        "phone_number": "4092365329",
+        "name": "Ishaan Choudhary",
+        "age": 56,
+        "income_monthly": 41485,
+        "expenses_monthly": 12295,
+        "loan_status": "Closed",
+        "credit_score": 617,
+        "reminder_preferences": "Daily",
+        "balance": 37069,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "Suggest best SIP plans for \u20b95000/month.",
+            "What documents are needed for a home loan?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "618046214",
+        "bank_accounts": [
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX4172",
+                "balance": 22497
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Savings",
+                "account_number": "XXXX5926",
+                "balance": 4135
+            }
+        ]
+    },
+    {
+        "user_id": "USR091",
+        "phone_number": "5147841147",
+        "name": "Myra Roy",
+        "age": 59,
+        "income_monthly": 37763,
+        "expenses_monthly": 46067,
+        "loan_status": "None",
+        "credit_score": 715,
+        "reminder_preferences": "Daily",
+        "balance": 43176,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "What is my current account balance?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "754475970",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX4671",
+                "balance": 32208
+            },
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX3299",
+                "balance": 8447
+            }
+        ]
+    },
+    {
+        "user_id": "USR092",
+        "phone_number": "+911141709095",
+        "name": "Indrans Sankaran",
+        "age": 50,
+        "income_monthly": 53072,
+        "expenses_monthly": 23928,
+        "loan_status": "Closed",
+        "credit_score": 823,
+        "reminder_preferences": "Monthly",
+        "balance": 42818,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "Is it the right time to invest in gold?",
+            "When is my next EMI due?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "899757430",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX3005",
+                "balance": 42205
+            }
+        ]
+    },
+    {
+        "user_id": "USR093",
+        "phone_number": "+914811360294",
+        "name": "Kabir Banik",
+        "age": 34,
+        "income_monthly": 71011,
+        "expenses_monthly": 27478,
+        "loan_status": "Closed",
+        "credit_score": 841,
+        "reminder_preferences": "Weekly",
+        "balance": 28716,
+        "investment_interest": "Mutual Funds",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "What is my current account balance?",
+            "Check fixed deposit in Axis Bank."
+        ],
+        "telegram_id": "563516945",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX6303",
+                "balance": 11284
+            },
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX4678",
+                "balance": 39253
+            }
+        ]
+    },
+    {
+        "user_id": "USR094",
+        "phone_number": "00092124498",
+        "name": "Mamooty Barad",
+        "age": 56,
+        "income_monthly": 55627,
+        "expenses_monthly": 36390,
+        "loan_status": "Closed",
+        "credit_score": 731,
+        "reminder_preferences": "Daily",
+        "balance": 42219,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "How to apply for a personal loan?",
+            "Is it the right time to invest in gold?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "309751977",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3179",
+                "balance": 19055
+            }
+        ]
+    },
+    {
+        "user_id": "USR095",
+        "phone_number": "8119485641",
+        "name": "Neysa Bains",
+        "age": 30,
+        "income_monthly": 95076,
+        "expenses_monthly": 38794,
+        "loan_status": "Active",
+        "credit_score": 782,
+        "reminder_preferences": "Daily",
+        "balance": 33982,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "What are the top-performing mutual funds?",
+            "When is my next EMI due?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "341913892",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX6222",
+                "balance": 9686
+            }
+        ]
+    },
+    {
+        "user_id": "USR096",
+        "phone_number": "+916750335441",
+        "name": "Zain Sura",
+        "age": 58,
+        "income_monthly": 50758,
+        "expenses_monthly": 51621,
+        "loan_status": "Active",
+        "credit_score": 770,
+        "reminder_preferences": "Daily",
+        "balance": 21407,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "What documents are needed for a home loan?",
+            "How can I increase my credit score?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "774845178",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX3606",
+                "balance": 43662
+            },
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX8846",
+                "balance": 39924
+            }
+        ]
+    },
+    {
+        "user_id": "USR097",
+        "phone_number": "1108175824",
+        "name": "Uthkarsh Sachdeva",
+        "age": 46,
+        "income_monthly": 70951,
+        "expenses_monthly": 28458,
+        "loan_status": "Closed",
+        "credit_score": 568,
+        "reminder_preferences": "Monthly",
+        "balance": 33885,
+        "investment_interest": "Crypto",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "When is my credit card bill due?",
+            "Transfer money from Axis Bank to Kotak Mahindra."
+        ],
+        "telegram_id": "233216875",
+        "bank_accounts": [
+            {
+                "bank_name": "SBI",
+                "account_type": "Current",
+                "account_number": "XXXX2810",
+                "balance": 42117
+            },
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Savings",
+                "account_number": "XXXX2099",
+                "balance": 10862
+            }
+        ]
+    },
+    {
+        "user_id": "USR098",
+        "phone_number": "+918780842928",
+        "name": "Himmat Borra",
+        "age": 23,
+        "income_monthly": 96196,
+        "expenses_monthly": 55863,
+        "loan_status": "Closed",
+        "credit_score": 568,
+        "reminder_preferences": "Daily",
+        "balance": 37497,
+        "investment_interest": "Fixed Deposit",
+        "previous_queries": [
+            "When is my next EMI due?",
+            "How to apply for a personal loan?",
+            "Check balance in HDFC Bank."
+        ],
+        "telegram_id": "313906948",
+        "bank_accounts": [
+            {
+                "bank_name": "Axis Bank",
+                "account_type": "Current",
+                "account_number": "XXXX1691",
+                "balance": 13323
+            }
+        ]
+    },
+    {
+        "user_id": "USR099",
+        "phone_number": "2304896310",
+        "name": "Yuvraj  Doshi",
+        "age": 24,
+        "income_monthly": 34920,
+        "expenses_monthly": 32785,
+        "loan_status": "None",
+        "credit_score": 836,
+        "reminder_preferences": "Monthly",
+        "balance": 7342,
+        "investment_interest": "Stocks",
+        "previous_queries": [
+            "What are the top-performing mutual funds?",
+            "How to apply for a personal loan?",
+            "What is the interest rate for savings in SBI?"
+        ],
+        "telegram_id": "418168097",
+        "bank_accounts": [
+            {
+                "bank_name": "HDFC Bank",
+                "account_type": "Current",
+                "account_number": "XXXX5644",
+                "balance": 15264
+            }
+        ]
+    },
+    {
+        "user_id": "USR100",
+        "phone_number": "5714383231",
+        "name": "Divyansh Bhatnagar",
+        "age": 39,
+        "income_monthly": 89879,
+        "expenses_monthly": 20132,
+        "loan_status": "None",
+        "credit_score": 841,
+        "reminder_preferences": "Daily",
+        "balance": 26679,
+        "investment_interest": "Gold",
+        "previous_queries": [
+            "What are the top-performing mutual funds?",
+            "When is my next EMI due?",
+            "Show recent transactions in ICICI Bank."
+        ],
+        "telegram_id": "586760693",
+        "bank_accounts": [
+            {
+                "bank_name": "ICICI Bank",
+                "account_type": "Current",
+                "account_number": "XXXX3868",
+                "balance": 20910
+            },
+            {
+                "bank_name": "Kotak Mahindra",
+                "account_type": "Current",
+                "account_number": "XXXX1155",
+                "balance": 40033
+            }
+        ]
+    }
+]
