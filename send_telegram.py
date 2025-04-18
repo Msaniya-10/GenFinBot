@@ -17,27 +17,45 @@ client = MongoClient(MONGO_URL)
 db = client["genfin_db"]
 users_collection = db["users"]
 
-# ✅ Clean welcome message
+# ✅ Welcome message
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Hello! I'm GenFinBot, your AI finance assistant 💰. Ask me anything related to banking, investment, or finance!")
 
-# 💬 Handles user messages
+# 💬 Handle user messages
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     telegram_id = str(update.message.chat.id)
-    user_query = update.message.text
+    user_query = update.message.text.lower().strip()
 
     user = users_collection.find_one({"telegram_id": telegram_id})
     if not user:
         await update.message.reply_text("❗You are not a registered user in the system.")
         return
 
-    # Add query to previous_queries
+    # 🏦 Check if query asks for account details
+    if "account details" in user_query or "my balance" in user_query or "bank details" in user_query:
+        account_info = user.get("bank_accounts", [])
+        if account_info:
+            account = account_info[0]  # Use the first account
+            details_msg = (
+                f"📄 *Account Details:*\n"
+                f"👤 *Name:* {user.get('name', 'N/A')}\n"
+                f"🏦 *Bank Name:* {account.get('bank_name', 'N/A')}\n"
+                f"💳 *Account Number:* {account.get('account_number', 'N/A')}\n"
+                f"💼 *Account Type:* {account.get('account_type', 'N/A')}\n"
+                f"💰 *Balance:* ₹{account.get('balance', 'N/A')}"
+            )
+            await update.message.reply_text(details_msg, parse_mode="Markdown")
+        else:
+            await update.message.reply_text("⚠️ No bank account information found.")
+        return
+
+    # 🧠 Add query to previous_queries
     users_collection.update_one(
         {"telegram_id": telegram_id},
         {"$push": {"previous_queries": user_query}}
     )
 
-    # Generate AI response using Cohere
+    # 🔮 AI response using Cohere
     prompt = f"You are GenFinBot, a financial advisor.\nUser: {user_query}\nGenFinBot:"
     response = co.generate(
         model='command',
@@ -46,7 +64,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     ai_reply = response.generations[0].text.strip()
 
-    # Save AI response
+    # Save AI reply
     users_collection.update_one(
         {"telegram_id": telegram_id},
         {"$set": {"last_ai_response": ai_reply}}
@@ -54,7 +72,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(ai_reply)
 
-# Bot setup
+# 🚀 Bot setup
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
