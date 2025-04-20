@@ -13,36 +13,34 @@ COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 MONGO_URL = os.getenv("MONGO_URL")
 ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY")
 
-# Setup clients
 co = cohere.Client(COHERE_API_KEY)
 client = MongoClient(MONGO_URL)
 db = client["genfin_db"]
 users_collection = db["users"]
 
-# Start command
+# Greet command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Hello! I'm GenFinBot, your AI finance assistant 💰. Ask me anything related to banking, investment, or finance!")
 
-# Function to fetch live stock price from Alpha Vantage
+# Stock price function
 def get_stock_price(symbol):
-    url = f"https://www.alphavantage.co/query"
-    params = {
-        "function": "GLOBAL_QUOTE",
-        "symbol": symbol.upper(),
-        "apikey": ALPHA_VANTAGE_KEY
-    }
-    response = requests.get(url, params=params)
-    data = response.json()
+    symbols_to_try = [symbol.upper(), symbol.upper() + ".BSE", symbol.upper() + ".NS"]
+    for sym in symbols_to_try:
+        url = "https://www.alphavantage.co/query"
+        params = {
+            "function": "GLOBAL_QUOTE",
+            "symbol": sym,
+            "apikey": ALPHA_VANTAGE_KEY
+        }
+        response = requests.get(url, params=params)
+        data = response.json()
+        if "Global Quote" in data and data["Global Quote"].get("05. price"):
+            price = data["Global Quote"]["05. price"]
+            change = data["Global Quote"]["10. change percent"]
+            return f"📈 {sym} is trading at ₹{float(price):,.2f} ({change})"
+    return "⚠️ Invalid stock symbol or data not available."
 
-    try:
-        quote = data["Global Quote"]
-        price = quote["05. price"]
-        change = quote["10. change percent"]
-        return f"📈 {symbol.upper()} is currently trading at ₹{float(price):,.2f} ({change})"
-    except KeyError:
-        return "⚠️ Invalid stock symbol or data not available."
-
-# Message handler to process user queries
+# Message handler
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     telegram_id = str(update.message.chat.id)
     user_query = update.message.text.lower()
@@ -52,137 +50,106 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❗You are not a registered user in the system.")
         return
 
-    # Add query to previous_queries
-    users_collection.update_one(
-        {"telegram_id": telegram_id},
-        {"$push": {"previous_queries": user_query}}
-    )
-
-    # Bank-related keywords
-    keywords_balance = ["balance", "account balance"]
-    keywords_number = ["account number", "acc number", "a/c number"]
-    keywords_type = ["account type", "acc type"]
-    keywords_all_details = ["all bank details", "full bank details", "all account details", "bank info", "bank information"]
-
+    users_collection.update_one({"telegram_id": telegram_id}, {"$push": {"previous_queries": user_query}})
     bank_accounts = user.get("bank_accounts", [])
-    has_multiple_accounts = len(bank_accounts) > 1
+    has_multiple = len(bank_accounts) > 1
 
-    # Show specific bank detail
+    # Bank-related queries
+    balance_keys = ["balance"]
+    number_keys = ["account number"]
+    type_keys = ["account type"]
+    all_info_keys = ["all bank details", "bank info", "account details"]
+
     for account in bank_accounts:
-        bank_name = account["bank_name"].lower()
-
-        if bank_name in user_query:
-            msg_parts = []
-            if any(k in user_query for k in keywords_balance):
-                msg_parts.append(f"🏦 Balance in {account['bank_name']} is ₹{account['balance']:,}")
-            if any(k in user_query for k in keywords_number):
-                msg_parts.append(f"🔢 Account Number: {account['account_number']}")
-            if any(k in user_query for k in keywords_type):
-                msg_parts.append(f"📘 Account Type: {account['account_type']}")
-            if not msg_parts:
-                msg_parts.append(
-                    f"🏦 {account['bank_name']}:\n🔢 Account Number: {account['account_number']}\n📘 Type: {account['account_type']}\n💰 Balance: ₹{account['balance']:,}"
-                )
-            await update.message.reply_text("\n".join(msg_parts))
+        bank = account["bank_name"].lower()
+        if bank in user_query:
+            parts = []
+            if any(k in user_query for k in balance_keys):
+                parts.append(f"🏦 Balance in {account['bank_name']}: ₹{account['balance']:,}")
+            if any(k in user_query for k in number_keys):
+                parts.append(f"🔢 Account Number: {account['account_number']}")
+            if any(k in user_query for k in type_keys):
+                parts.append(f"📘 Account Type: {account['account_type']}")
+            if not parts:
+                parts.append(f"{account['bank_name']}: ₹{account['balance']:,}, {account['account_number']} ({account['account_type']})")
+            await update.message.reply_text("\n".join(parts))
             return
 
-    # If asking for all details
-    if any(k in user_query for k in keywords_all_details):
-        msg = "🏦 Your Bank Accounts:\n"
-        for account in bank_accounts:
-            msg += f"\n{account['bank_name']}:\n🔢 Account Number: {account['account_number']}\n📘 Type: {account['account_type']}\n💰 Balance: ₹{account['balance']:,}\n"
-        await update.message.reply_text(msg)
+    if any(k in user_query for k in all_info_keys):
+        reply = "🏦 Your Bank Accounts:\n"
+        for a in bank_accounts:
+            reply += f"\n{a['bank_name']}:\n🔢 {a['account_number']}\n📘 {a['account_type']}\n💰 ₹{a['balance']:,}\n"
+        await update.message.reply_text(reply)
         return
 
-    # Generic balance question (no bank specified)
-    if any(k in user_query for k in keywords_balance):
-        if has_multiple_accounts:
-            await update.message.reply_text("🤖 You have multiple accounts. Please specify the bank name (e.g., HDFC, ICICI) to get your balance.")
+    if any(k in user_query for k in balance_keys):
+        if has_multiple:
+            await update.message.reply_text("🤖 You have multiple accounts. Please mention the bank name.")
         else:
-            account = bank_accounts[0]
-            await update.message.reply_text(
-                f"🏦 Your balance in {account['bank_name']} ({account['account_type']}) is ₹{account['balance']:,}"
-            )
+            a = bank_accounts[0]
+            await update.message.reply_text(f"🏦 Your balance in {a['bank_name']}: ₹{a['balance']:,}")
         return
 
-    # Generic account number / type query (no bank name)
-    if any(k in user_query for k in keywords_number + keywords_type):
-        if has_multiple_accounts:
-            await update.message.reply_text("🤖 You have multiple accounts. Please specify the bank name to get details.")
+    if any(k in user_query for k in number_keys + type_keys):
+        if has_multiple:
+            await update.message.reply_text("🤖 You have multiple accounts. Please mention the bank name.")
         else:
-            account = bank_accounts[0]
-            details = []
-            if any(k in user_query for k in keywords_number):
-                details.append(f"🔢 Account Number: {account['account_number']}")
-            if any(k in user_query for k in keywords_type):
-                details.append(f"📘 Account Type: {account['account_type']}")
-            await update.message.reply_text("\n".join(details))
+            a = bank_accounts[0]
+            parts = []
+            if any(k in user_query for k in number_keys):
+                parts.append(f"🔢 Account Number: {a['account_number']}")
+            if any(k in user_query for k in type_keys):
+                parts.append(f"📘 Account Type: {a['account_type']}")
+            await update.message.reply_text("\n".join(parts))
         return
 
-    # Personal finance details
+    # Personal financial info
     if "credit score" in user_query:
-        await update.message.reply_text(f"💳 Your credit score is {user.get('credit_score', 'Not Available')}")
+        await update.message.reply_text(f"💳 Your credit score: {user.get('credit_score', 'N/A')}")
         return
-
     if "income" in user_query:
-        await update.message.reply_text(f"💼 Your monthly income is ₹{user.get('income_monthly', 0):,}")
+        await update.message.reply_text(f"💼 Monthly income: ₹{user.get('income_monthly', 0):,}")
         return
-
     if "expenses" in user_query:
-        await update.message.reply_text(f"📉 Your monthly expenses are ₹{user.get('expenses_monthly', 0):,}")
+        await update.message.reply_text(f"📉 Monthly expenses: ₹{user.get('expenses_monthly', 0):,}")
         return
-
     if "loan" in user_query:
-        await update.message.reply_text(f"🏦 Your loan status is {user.get('loan_status', 'Not Available')}")
+        await update.message.reply_text(f"🏦 Loan status: {user.get('loan_status', 'N/A')}")
         return
-
     if "investment" in user_query:
-        await update.message.reply_text(f"📊 You're interested in investing in {user.get('investment_interest', 'Not Specified')}")
+        await update.message.reply_text(f"📊 Interested in: {user.get('investment_interest', 'N/A')}")
         return
-
-    if "reminder" in user_query or "frequency" in user_query:
-        await update.message.reply_text(f"⏰ Your reminder preference is set to {user.get('reminder_preferences', 'Not Set')}")
+    if "reminder" in user_query:
+        await update.message.reply_text(f"⏰ Reminder frequency: {user.get('reminder_preferences', 'N/A')}")
         return
-
-    if "phone" in user_query or "contact" in user_query:
-        await update.message.reply_text(f"📞 Your registered phone number is {user.get('phone_number', 'Not Available')}")
+    if "phone" in user_query:
+        await update.message.reply_text(f"📞 Phone: {user.get('phone_number', 'N/A')}")
         return
-
     if "name" in user_query:
-        await update.message.reply_text(f"🧑 Your name is {user.get('name', 'Not Available')}")
+        await update.message.reply_text(f"🧑 Name: {user.get('name', 'N/A')}")
         return
-
     if "age" in user_query:
-        await update.message.reply_text(f"🎂 Your age is {user.get('age', 'Not Available')}")
+        await update.message.reply_text(f"🎂 Age: {user.get('age', 'N/A')}")
         return
 
-    # Stock price request
+    # Stock query
     if "stock" in user_query or "share price" in user_query:
         for word in user_query.split():
-            if word.isalpha() and len(word) <= 5:  # crude stock symbol guess
-                stock_info = get_stock_price(word)
-                await update.message.reply_text(stock_info)
+            if word.isalpha() and len(word) <= 5:
+                await update.message.reply_text(get_stock_price(word))
                 return
-        await update.message.reply_text("📊 Please mention a valid stock symbol (e.g., TCS, INFY, RELIANCE).")
+        await update.message.reply_text("📊 Please mention a valid stock symbol (e.g., TCS, INFY).")
         return
 
-    # Default: Ask Cohere AI for general queries
-    prompt = f"You are GenFinBot, a financial assistant.\nUser: {user_query}\nGenFinBot:"
-    response = co.generate(
-        model='command',
-        prompt=prompt,
-        max_tokens=200
-    )
-    ai_reply = response.generations[0].text.strip()
+    # Cohere fallback
+    prompt = f"You are GenFinBot, a financial advisor.\nUser: {user_query}\nGenFinBot:"
+    response = co.generate(model="command", prompt=prompt, max_tokens=200)
+    reply = response.generations[0].text.strip()
 
-    users_collection.update_one(
-        {"telegram_id": telegram_id},
-        {"$set": {"last_ai_response": ai_reply}}
-    )
+    users_collection.update_one({"telegram_id": telegram_id}, {"$set": {"last_ai_response": reply}})
+    await update.message.reply_text(reply)
 
-    await update.message.reply_text(ai_reply)
-
-# Bot setup
+# Start bot
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
