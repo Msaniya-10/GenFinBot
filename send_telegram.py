@@ -37,52 +37,37 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         {"$push": {"previous_queries": user_query}}
     )
 
-    # Check for specific keywords in query
+    # Check for bank balance query
     if "balance" in user_query:
-        if "account" in user_query:
-            reply = f"🏦 Your main account balance is ₹{user.get('balance', 'N/A')}."
-        elif "hdfc" in user_query.lower() or "sbi" in user_query.lower():
-            bank_name = "HDFC" if "hdfc" in user_query else "SBI"
-            for acct in user.get("bank_accounts", []):
-                if bank_name.lower() in acct['bank_name'].lower():
-                    reply = f"🏦 Your {bank_name} account balance is ₹{acct['balance']}."
-                    break
-            else:
-                reply = f"⚠️ No {bank_name} account found in your profile."
-        else:
-            reply = f"🏦 Your account balance is ₹{user.get('balance', 'N/A')}."
+        found = False
+        for account in user.get("bank_accounts", []):
+            if account["bank_name"].lower() in user_query:
+                await update.message.reply_text(
+                    f"🏦 Your balance in {account['bank_name']} ({account['account_type']}) is ₹{account['balance']:,}"
+                )
+                found = True
+                break
+        if not found:
+            await update.message.reply_text("🤖 You have multiple accounts. Please specify the bank name (e.g., HDFC, ICICI) to get your balance.")
+        return
 
-    elif "credit score" in user_query:
-        reply = f"💳 Your credit score is {user.get('credit_score', 'N/A')}."
-
-    elif "loan" in user_query:
-        reply = f"🏛️ Your loan status is: {user.get('loan_status', 'N/A')}."
-
-    elif "reminder" in user_query:
-        reply = f"🔔 You have chosen {user.get('reminder_preferences', 'N/A')} reminders for payments."
-
-    elif "investment" in user_query:
-        reply = f"📈 You're interested in investing in {user.get('investment_interest', 'N/A')}."
-
-    elif "income" in user_query:
-        reply = f"💰 Your monthly income is ₹{user.get('income_monthly', 'N/A')}."
-
-    elif "expense" in user_query or "spend" in user_query:
-        reply = f"💸 Your monthly expenses are ₹{user.get('expenses_monthly', 'N/A')}."
-
-    else:
-        # Use Cohere if no specific match found
-        prompt = f"You are GenFinBot, a financial advisor.\nUser: {user_query}\nGenFinBot:"
-        response = co.generate(model='command', prompt=prompt, max_tokens=200)
-        reply = response.generations[0].text.strip()
+    # Otherwise, continue with Cohere AI reply
+    prompt = f"You are GenFinBot, a financial advisor.\nUser: {user_query}\nGenFinBot:"
+    response = co.generate(
+        model='command',
+        prompt=prompt,
+        max_tokens=200
+    )
+    ai_reply = response.generations[0].text.strip()
 
     # Save AI response
     users_collection.update_one(
         {"telegram_id": telegram_id},
-        {"$set": {"last_ai_response": reply}}
+        {"$set": {"last_ai_response": ai_reply}}
     )
 
-    await update.message.reply_text(reply)
+    await update.message.reply_text(ai_reply)
+
 
 # Bot setup
 app = ApplicationBuilder().token(BOT_TOKEN).build()
