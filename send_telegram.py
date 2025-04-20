@@ -4,12 +4,14 @@ from pymongo import MongoClient
 import cohere
 import os
 from dotenv import load_dotenv
+import requests
 
 # Load environment variables
 load_dotenv()
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 MONGO_URL = os.getenv("MONGO_URL")
+ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY")
 
 # Setup clients
 co = cohere.Client(COHERE_API_KEY)
@@ -20,6 +22,24 @@ users_collection = db["users"]
 # Start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Hello! I'm GenFinBot, your AI finance assistant 💰. Ask me anything related to banking, investment, or finance!")
+
+def get_stock_price(symbol):
+    url = f"https://www.alphavantage.co/query"
+    params = {
+        "function": "GLOBAL_QUOTE",
+        "symbol": symbol.upper(),
+        "apikey": ALPHA_VANTAGE_KEY
+    }
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    try:
+        quote = data["Global Quote"]
+        price = quote["05. price"]
+        change = quote["10. change percent"]
+        return f"📈 {symbol.upper()} is currently trading at ₹{float(price):,.2f} ({change})"
+    except KeyError:
+        return "⚠️ Invalid stock symbol or data not available."
 
 # Message handler
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -134,6 +154,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if "age" in user_query:
         await update.message.reply_text(f"🎂 Your age is {user.get('age', 'Not Available')}")
         return
+    if "stock" in user_query or "share price" in user_query:
+            for word in user_query.split():
+                if word.isalpha() and len(word) <= 5:  # crude stock symbol guess
+                    stock_info = get_stock_price(word)
+                await update.message.reply_text(stock_info)
+                return
+            await update.message.reply_text("📊 Please mention a valid stock symbol (e.g., TCS, INFY, RELIANCE).")
+            return
 
     # Default: Ask Cohere AI
     prompt = f"You are GenFinBot, a financial assistant.\nUser: {user_query}\nGenFinBot:"
