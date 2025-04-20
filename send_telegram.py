@@ -2,8 +2,8 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
 from pymongo import MongoClient
 import cohere
-import finnhub
 import os
+import yfinance as yf  # Import yfinance
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -11,11 +11,9 @@ load_dotenv()
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 MONGO_URL = os.getenv("MONGO_URL")
-FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
 
 # Setup clients
 co = cohere.Client(COHERE_API_KEY)
-finnhub_client = finnhub.Client(api_key=FINNHUB_API_KEY)
 client = MongoClient(MONGO_URL)
 db = client["genfin_db"]
 users_collection = db["users"]
@@ -24,18 +22,24 @@ users_collection = db["users"]
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Hello! I'm GenFinBot, your AI finance assistant 💰. Ask me anything related to banking, investment, or finance!")
 
-# Function to fetch live stock price using Finnhub
+# Function to fetch live stock price using yfinance
 def get_stock_price(symbol):
+    symbol = symbol.upper()
+
     try:
-        quote = finnhub_client.quote(symbol.upper())
-        current = quote["c"]
-        change = quote["dp"]
-        if current:
-            return f"📈 {symbol.upper()} is trading at ₹{current:,.2f} ({change:.2f}% change)"
+        ticker = yf.Ticker(symbol)
+        data = ticker.info
+
+        current_price = data.get("currentPrice")
+        change_percent = data.get("regularMarketChangePercent")
+
+        if current_price is not None:
+            change_str = f" ({change_percent:.2f}% change)" if change_percent is not None else ""
+            return f"📈 {symbol} is trading at ₹{current_price:,.2f}{change_str}"
         else:
-            return "⚠️ Stock symbol not found or no price data available."
+            return f"⚠️ No live price found for {symbol}. Try a valid symbol like TCS.NS or INFY.NS"
     except Exception as e:
-        return f"⚠️ Error fetching data: {str(e)}"
+        return f"⚠️ Error fetching stock data: {str(e)}"
 
 # Message handler
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
