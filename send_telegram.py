@@ -23,6 +23,7 @@ users_collection = db["users"]
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Hello! I'm GenFinBot, your AI finance assistant 💰. Ask me anything related to banking, investment, or finance!")
 
+# Function to fetch live stock price from Alpha Vantage
 def get_stock_price(symbol):
     url = f"https://www.alphavantage.co/query"
     params = {
@@ -41,7 +42,7 @@ def get_stock_price(symbol):
     except KeyError:
         return "⚠️ Invalid stock symbol or data not available."
 
-# Message handler
+# Message handler to process user queries
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     telegram_id = str(update.message.chat.id)
     user_query = update.message.text.lower()
@@ -51,7 +52,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❗You are not a registered user in the system.")
         return
 
-    # Add query to history
+    # Add query to previous_queries
     users_collection.update_one(
         {"telegram_id": telegram_id},
         {"$push": {"previous_queries": user_query}}
@@ -154,16 +155,18 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if "age" in user_query:
         await update.message.reply_text(f"🎂 Your age is {user.get('age', 'Not Available')}")
         return
+
+    # Stock price request
     if "stock" in user_query or "share price" in user_query:
-            for word in user_query.split():
-                if word.isalpha() and len(word) <= 5:  # crude stock symbol guess
-                    stock_info = get_stock_price(word)
+        for word in user_query.split():
+            if word.isalpha() and len(word) <= 5:  # crude stock symbol guess
+                stock_info = get_stock_price(word)
                 await update.message.reply_text(stock_info)
                 return
-            await update.message.reply_text("📊 Please mention a valid stock symbol (e.g., TCS, INFY, RELIANCE).")
-            return
+        await update.message.reply_text("📊 Please mention a valid stock symbol (e.g., TCS, INFY, RELIANCE).")
+        return
 
-    # Default: Ask Cohere AI
+    # Default: Ask Cohere AI for general queries
     prompt = f"You are GenFinBot, a financial assistant.\nUser: {user_query}\nGenFinBot:"
     response = co.generate(
         model='command',
