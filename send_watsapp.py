@@ -224,11 +224,13 @@ def whatsapp_reply():
     ai_reply = response.generations[0].text.strip()
 
     users_collection.update_one(
-        {"phone_number": phone_number},
-        {"$push": {"previous_queries": message_body}},
-        {"$set": {"last_ai_response": ai_reply}},
-        upsert=True
-    )
+    {"phone_number": phone_number},
+    {
+        "$push": {"previous_queries": message_body},
+        "$set": {"last_ai_response": ai_reply}
+    },
+    upsert=True
+)
 
     resp.message(ai_reply)
     return str(resp)
