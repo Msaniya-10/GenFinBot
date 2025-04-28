@@ -21,7 +21,6 @@ db = client['genfin_db']
 users_collection = db['users']
 co = cohere.Client(COHERE_API_KEY)
 
-# In-memory registration state
 user_states = {}
 
 HIGH_PRIORITY_KEYWORDS = [
@@ -90,22 +89,25 @@ def whatsapp_reply():
     phone_number = from_number.replace("whatsapp:+91", "")
     resp = MessagingResponse()
     user_query = message_body.strip().lower()
+    
     user = users_collection.find_one({"phone_number": phone_number})
+    bank_accounts = user.get("bank_accounts", []) if user else []
 
+    # 🚀 1. Registration flow
     if not user:
         state = user_states.get(phone_number, {"step": "name"})
-
+        
         if state["step"] == "name":
             user_states[phone_number] = {"name": message_body.strip(), "step": "age"}
             resp.message("🎂 Enter your age:")
-
+        
         elif state["step"] == "age":
             try:
                 user_states[phone_number]["age"] = int(message_body)
                 user_states[phone_number]["step"] = "income"
                 resp.message("💼 Enter your monthly income:")
             except:
-                resp.message("Please enter a valid age:")
+                resp.message("Please enter valid age:")
 
         elif state["step"] == "income":
             try:
@@ -137,7 +139,7 @@ def whatsapp_reply():
                 user_states[phone_number]["step"] = "investment"
                 resp.message("📊 What are you interested to invest in?")
             else:
-                resp.message("Please type Open/Closed:")
+                resp.message("Please type Open or Closed:")
 
         elif state["step"] == "investment":
             user_states[phone_number]["investment_interest"] = message_body.strip()
@@ -151,65 +153,121 @@ def whatsapp_reply():
                 user_states[phone_number]["step"] = "bank_name"
                 resp.message("Enter Bank Name for Account 1:")
             except:
-                resp.message("Please enter valid number of accounts:")
+                resp.message("Please enter a valid number:")
 
         elif state["step"] == "bank_name":
-            state = user_states[phone_number]
-            state["current"] = {"bank_name": message_body}
-            state["step"] = "account_number"
+            user_states[phone_number]["current"] = {"bank_name": message_body.strip()}
+            user_states[phone_number]["step"] = "account_number"
             resp.message("Enter Account Number:")
 
         elif state["step"] == "account_number":
-            acc_num = message_body.strip()
-            masked = "X" * (len(acc_num) - 4) + acc_num[-4:]
+            acc = message_body.strip()
+            masked = "X" * (len(acc) - 4) + acc[-4:]
             user_states[phone_number]["current"]["account_number"] = masked
             user_states[phone_number]["step"] = "account_type"
-            resp.message("Account Type (Saving/Current):")
+            resp.message("Enter Account Type (Saving/Current):")
 
         elif state["step"] == "account_type":
-            user_states[phone_number]["current"]["account_type"] = message_body
+            user_states[phone_number]["current"]["account_type"] = message_body.strip()
             user_states[phone_number]["step"] = "balance"
             resp.message("Enter Balance:")
 
         elif state["step"] == "balance":
             try:
-                state = user_states[phone_number]
-                state["current"]["balance"] = int(message_body)
-                state["bank_accounts"].append(state.pop("current"))
-                state["remaining_accounts"] -= 1
-                if state["remaining_accounts"] > 0:
-                    state["step"] = "bank_name"
+                current = user_states[phone_number]["current"]
+                current["balance"] = int(message_body)
+                user_states[phone_number]["bank_accounts"].append(current)
+                user_states[phone_number].pop("current")
+                user_states[phone_number]["remaining_accounts"] -= 1
+
+                if user_states[phone_number]["remaining_accounts"] > 0:
+                    user_states[phone_number]["step"] = "bank_name"
                     resp.message("Enter next Bank Name:")
                 else:
                     final_data = {
-                        **{k: v for k, v in state.items() if k not in ["step", "remaining_accounts"]},
                         "phone_number": phone_number,
                         "telegram_id": "Not Linked",
                         "priority": "normal",
-                        "previous_queries": []
+                        "previous_queries": [],
+                        **{k: v for k, v in user_states[phone_number].items() if k not in ["step", "remaining_accounts"]}
                     }
                     users_collection.insert_one(final_data)
                     user_states.pop(phone_number)
-                    resp.message("✅ Registration done! You can ask about balance, income, expenses, investments!")
+                    resp.message("✅ Registration complete! Now ask about your finances 💬")
             except:
-                resp.message("Please enter valid balance:")
-
+                resp.message("Please enter valid balance amount:")
+        
         return str(resp)
 
-    # -- If already registered user --
-    # Priority detection
+    # 🚀 2. High priority
     if contains_high_priority(user_query):
         users_collection.update_one({"phone_number": phone_number}, {"$set": {"priority": "high"}})
-        send_email("High Priority Alert", f"From {phone_number}: {message_body}", os.getenv("EMAIL_RECEIVER"))
-        resp.message("⚠️ High priority issue detected, support alerted!")
+        send_email("High Priority Alert", f"User {phone_number} raised: {message_body}", os.getenv("EMAIL_RECEIVER"))
+        resp.message("⚠️ High priority issue detected. Support team alerted!")
         return str(resp)
 
-    # FAQ
+    # 🚀 3. FAQ
     if user_query in FAQ_RESPONSES:
         resp.message(FAQ_RESPONSES[user_query])
         return str(resp)
 
-    # Stocks
+    # 🚀 4. Bank account queries
+    if "account number" in user_query or "account type" in user_query or "balance" in user_query:
+        if not bank_accounts:
+            resp.message("❗ No bank account info found.")
+            return str(resp)
+
+        if len(bank_accounts) == 1:
+            acc = bank_accounts[0]
+            parts = []
+            if "account number" in user_query:
+                parts.append(f"🔢 Account Number: {acc['account_number']}")
+            if "account type" in user_query:
+                parts.append(f"📘 Account Type: {acc['account_type']}")
+            if "balance" in user_query:
+                parts.append(f"💰 Balance: ₹{acc['balance']:,}")
+            resp.message("\n".join(parts))
+            return str(resp)
+
+        else:
+            # Multiple accounts
+            if any(bank['bank_name'].lower() in user_query for bank in bank_accounts):
+                for acc in bank_accounts:
+                    if acc['bank_name'].lower() in user_query:
+                        parts = []
+                        if "account number" in user_query:
+                            parts.append(f"🔢 Account Number: {acc['account_number']}")
+                        if "account type" in user_query:
+                            parts.append(f"📘 Account Type: {acc['account_type']}")
+                        if "balance" in user_query:
+                            parts.append(f"💰 Balance: ₹{acc['balance']:,}")
+                        resp.message("\n".join(parts))
+                        return str(resp)
+                resp.message("❗ Bank name not recognized. Please mention a valid bank name (like HDFC, ICICI).")
+                return str(resp)
+            else:
+                bank_list = ", ".join([acc['bank_name'] for acc in bank_accounts])
+                resp.message(f"🏦 You have multiple bank accounts: {bank_list}. Please specify which one.")
+                return str(resp)
+
+    # 🚀 5. Personal details
+    if "income" in user_query:
+        resp.message(f"💼 Monthly Income: ₹{user.get('income_monthly', 0):,}")
+        return str(resp)
+
+    if "expenses" in user_query:
+        resp.message(f"📉 Monthly Expenses: ₹{user.get('expenses_monthly', 0):,}")
+        return str(resp)
+
+    if "loan" in user_query:
+        resp.message(f"🏦 Loan Status: {user.get('loan_status', 'Unknown')}")
+        return str(resp)
+
+    if "credit score" in user_query:
+        resp.message(f"💳 Credit Score: {user.get('credit_score', 'Unknown')}")
+        return str(resp)
+
+    # 🚀 6. Stock Price
     if "stock" in user_query or "share" in user_query:
         for company, symbol in COMPANY_MAPPING.items():
             if company in user_query:
@@ -218,72 +276,7 @@ def whatsapp_reply():
         resp.message("Mention valid company name like Apple, Amazon, Infosys.")
         return str(resp)
 
-    # Finance info
-    user = users_collection.find_one({"phone_number": phone_number})
-    # 5. Fetch Bank Account Details
-    if "account number" in user_query or "account type" in user_query or "balance" in user_query:
-        bank_accounts = user.get("bank_accounts", [])
-    if not bank_accounts:
-        resp.message("❗ No bank account data found for you.")
-        return str(resp)
-
-    if len(bank_accounts) == 1:
-        acc = bank_accounts[0]
-        reply_parts = []
-        if "account number" in user_query:
-            reply_parts.append(f"🔢 Account Number: {acc['account_number']}")
-        if "account type" in user_query:
-            reply_parts.append(f"📘 Account Type: {acc['account_type']}")
-        if "balance" in user_query:
-            reply_parts.append(f"💰 Balance: ₹{acc['balance']:,}")
-
-        resp.message("\n".join(reply_parts))
-        return str(resp)
-    
-    else:
-        # Multiple accounts: ask which bank
-        if any(bank.lower() in user_query for bank in [acc['bank_name'].lower() for acc in bank_accounts]):
-            # User already specified bank name
-            for acc in bank_accounts:
-                if acc['bank_name'].lower() in user_query:
-                    reply_parts = []
-                    if "account number" in user_query:
-                        reply_parts.append(f"🔢 Account Number: {acc['account_number']}")
-                    if "account type" in user_query:
-                        reply_parts.append(f"📘 Account Type: {acc['account_type']}")
-                    if "balance" in user_query:
-                        reply_parts.append(f"💰 Balance: ₹{acc['balance']:,}")
-
-                    resp.message("\n".join(reply_parts))
-                    return str(resp)
-
-            # If bank not matched
-            resp.message("❗Bank name not recognized. Please type the bank name (like HDFC, ICICI, etc.).")
-            return str(resp)
-        else:
-            # No bank name yet
-            available_banks = ", ".join([acc['bank_name'] for acc in bank_accounts])
-            resp.message(f"🏦 You have multiple bank accounts: {available_banks}. Please mention the bank name you want details for.")
-            return str(resp)
-
-
-    if "income" in user_query:
-        resp.message(f"💼 Your monthly income: ₹{user.get('income_monthly', 0):,}")
-        return str(resp)
-
-    if "expenses" in user_query:
-        resp.message(f"📉 Your monthly expenses: ₹{user.get('expenses_monthly', 0):,}")
-        return str(resp)
-
-    if "loan" in user_query:
-        resp.message(f"💼 Loan Status: {user.get('loan_status', 'Unknown')}")
-        return str(resp)
-
-    if "credit score" in user_query:
-        resp.message(f"💳 Credit Score: {user.get('credit_score', 'Unknown')}")
-        return str(resp)
-
-    # Cohere fallback
+    # 🚀 7. Cohere fallback
     prompt = f"You are GenFinBot, an intelligent financial bot.\nUser: {message_body}\nGenFinBot:"
     ai = co.generate(model="command", prompt=prompt, max_tokens=200)
     resp.message(ai.generations[0].text.strip())
