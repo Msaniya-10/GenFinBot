@@ -5,6 +5,9 @@ import os
 from dotenv import load_dotenv
 from twilio.twiml.messaging_response import MessagingResponse
 import requests
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 # Load environment variables
 load_dotenv()
@@ -49,10 +52,35 @@ FAQ_RESPONSES = {
     "how can i contact support": "📞 Just type your issue with the keyword 'urgent' or 'high priority'!"
 }
 
+def send_email(subject, body, to_email):
+    try:
+        from_email = os.getenv("EMAIL_SENDER")  # Your email address (e.g., Gmail)
+        email_password = os.getenv("EMAIL_PASSWORD")  # Your email password (or app-specific password)
+        
+        # Set up the SMTP server (Gmail example)
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(from_email, email_password)
+
+        # Compose the email
+        msg = MIMEMultipart()
+        msg["From"] = from_email
+        msg["To"] = to_email
+        msg["Subject"] = subject
+
+        # Add body to email
+        msg.attach(MIMEText(body, "plain"))
+
+        # Send email
+        server.sendmail(from_email, to_email, msg.as_string())
+        server.quit()
+        print(f"Email sent to {to_email}!")
+    except Exception as e:
+        print(f"Error sending email: {str(e)}")
+
 # Helper functions
-def contains_high_priority(message: str) -> bool:
-    message = message.lower()
-    return any(keyword in message for keyword in HIGH_PRIORITY_KEYWORDS)
+def contains_high_priority(user_query):
+    return any(keyword in user_query for keyword in HIGH_PRIORITY_KEYWORDS)
 
 def get_stock_price(symbol):
     try:
@@ -126,7 +154,6 @@ def whatsapp_reply():
                 resp.message("❗Please enter a valid number for expenses:")
             return str(resp)
 
-
         elif isinstance(state, dict) and "expenses_monthly" in state and "credit_score" not in state:
             try:
                 credit_score = int(message_body)
@@ -173,8 +200,16 @@ def whatsapp_reply():
     # 3. High Priority
     if contains_high_priority(user_query):
         users_collection.update_one({"phone_number": phone_number}, {"$set": {"priority": "high"}})
+
+    # Send an email to support team
+        support_email = os.getenv("EMAIL_RECEIVER")  # Add this in your .env
+        subject = f"🚨 High Priority Alert from {phone_number}"
+        body = f"User {phone_number} reported a high-priority issue:\n\n{message_body}\n\nPlease respond immediately!"
+        send_email(subject, body, support_email)
+
         resp.message("⚠️ High-priority issue detected. Support has been alerted!")
         return str(resp)
+
 
     # 4. Stock Price
     if "stock" in user_query or "share" in user_query or "price" in user_query:
