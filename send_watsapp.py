@@ -11,7 +11,7 @@ MONGO_URL = os.getenv("MONGO_URL")
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
 # Setup
-app = Flask(_name_)
+app = Flask(__name__)
 client = MongoClient(MONGO_URL)
 db = client['genfin_db']
 users_collection = db['users']
@@ -94,7 +94,8 @@ def whatsapp_reply():
     resp.message(ai_reply)
     return str(resp)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
+
