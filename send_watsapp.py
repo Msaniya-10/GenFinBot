@@ -95,7 +95,13 @@ def whatsapp_reply():
 
     # 🚀 1. Registration flow
     if not user:
-        state = user_states.get(phone_number, {"step": "name"})
+    # If phone number not in user_states, initialize it
+        if phone_number not in user_states:
+            user_states[phone_number] = {"step": "name"}
+            resp.message("👋 Welcome to GenFinBot! Let's get you registered. Please enter your full name:")
+            return str(resp)
+
+        state = user_states[phone_number]
         
         if state["step"] == "name":
             user_states[phone_number] = {"name": message_body.strip(), "step": "age"}
