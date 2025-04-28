@@ -54,31 +54,22 @@ FAQ_RESPONSES = {
 
 def send_email(subject, body, to_email):
     try:
-        from_email = os.getenv("EMAIL_SENDER")  # Your email address (e.g., Gmail)
-        email_password = os.getenv("EMAIL_PASSWORD")  # Your email password (or app-specific password)
-        
-        # Set up the SMTP server (Gmail example)
+        from_email = os.getenv("EMAIL_SENDER")
+        email_password = os.getenv("EMAIL_PASSWORD")
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.starttls()
         server.login(from_email, email_password)
-
-        # Compose the email
         msg = MIMEMultipart()
         msg["From"] = from_email
         msg["To"] = to_email
         msg["Subject"] = subject
-
-        # Add body to email
         msg.attach(MIMEText(body, "plain"))
-
-        # Send email
         server.sendmail(from_email, to_email, msg.as_string())
         server.quit()
         print(f"Email sent to {to_email}!")
     except Exception as e:
         print(f"Error sending email: {str(e)}")
 
-# Helper functions
 def contains_high_priority(user_query):
     return any(keyword in user_query for keyword in HIGH_PRIORITY_KEYWORDS)
 
@@ -95,19 +86,17 @@ def get_stock_price(symbol):
     except Exception as e:
         return f"⚠️ Error fetching stock data: {str(e)}"
 
-# Main WhatsApp route
 @app.route("/whatsapp", methods=["POST"])
 def whatsapp_reply():
-    from_number = request.form.get("From")  # whatsapp:+91XXXXXXXXXX
+    from_number = request.form.get("From")
     message_body = request.form.get("Body")
     phone_number = from_number.replace("whatsapp:+91", "")
-
     resp = MessagingResponse()
     user_query = message_body.strip().lower()
 
     user = users_collection.find_one({"phone_number": phone_number})
 
-    # 1. Registration flow
+    # Registration flow
     if not user:
         state = user_states.get(phone_number, "start")
 
@@ -144,17 +133,17 @@ def whatsapp_reply():
                 resp.message("❗Please enter a valid number for income:")
             return str(resp)
 
-        elif isinstance(state, dict) and "income_monthly" in state and "expenses" not in state:
+        elif isinstance(state, dict) and "income_monthly" in state and "expenses_monthly" not in state:
             try:
                 expenses = int(message_body)
-                state["expenses"] = expenses
+                state["expenses_monthly"] = expenses
                 user_states[phone_number] = state
                 resp.message("💳 What's your credit score?")
             except ValueError:
                 resp.message("❗Please enter a valid number for expenses:")
             return str(resp)
 
-        elif isinstance(state, dict) and "expenses" in state and "credit_score" not in state:
+        elif isinstance(state, dict) and "expenses_monthly" in state and "credit_score" not in state:
             try:
                 credit_score = int(message_body)
                 state["credit_score"] = credit_score
@@ -177,7 +166,6 @@ def whatsapp_reply():
         elif isinstance(state, dict) and "loan_status" in state and "investment_interest" not in state:
             investment = message_body.strip()
             state["investment_interest"] = investment
-            # Registration Complete
             final_user = {
                 "phone_number": phone_number,
                 "telegram_id": "Not Linked",
@@ -192,26 +180,39 @@ def whatsapp_reply():
             resp.message("✅ Registration complete! You can now ask me anything about your finances 💬")
             return str(resp)
 
-    # 2. FAQs
+    # Handle if waiting for bank name (for balance, account number, etc.)
+    if phone_number in user_states and isinstance(user_states[phone_number], dict) and "waiting_for_bank" in user_states[phone_number]:
+        purpose = user_states[phone_number]["waiting_for_bank"]
+        bank_accounts = user.get("bank_accounts", [])
+        requested_bank = message_body.strip().lower()
+
+        for acc in bank_accounts:
+            if requested_bank in acc['bank_name'].lower():
+                if purpose == "balance":
+                    resp.message(f"🏦 Balance in {acc['bank_name']}: ₹{acc['balance']:,}")
+                # Add for account number if needed here
+                user_states.pop(phone_number)
+                return str(resp)
+
+        resp.message("❗Bank not found. Please type a valid bank name.")
+        return str(resp)
+
+    # FAQs
     if user_query in FAQ_RESPONSES:
         resp.message(FAQ_RESPONSES[user_query])
         return str(resp)
 
-    # 3. High Priority
+    # High Priority
     if contains_high_priority(user_query):
         users_collection.update_one({"phone_number": phone_number}, {"$set": {"priority": "high"}})
-
-    # Send an email to support team
-        support_email = os.getenv("EMAIL_RECEIVER")  # Add this in your .env
+        support_email = os.getenv("EMAIL_RECEIVER")
         subject = f"🚨 High Priority Alert from {phone_number}"
         body = f"User {phone_number} reported a high-priority issue:\n\n{message_body}\n\nPlease respond immediately!"
         send_email(subject, body, support_email)
-
         resp.message("⚠️ High-priority issue detected. Support has been alerted!")
         return str(resp)
 
-
-    # 4. Stock Price
+    # Stock Price
     if "stock" in user_query or "share" in user_query or "price" in user_query:
         found = False
         for company, symbol in COMPANY_MAPPING.items():
@@ -224,14 +225,17 @@ def whatsapp_reply():
             resp.message("📊 Please mention a valid company like Apple, Amazon, Infosys, Reliance, or HDFC.")
         return str(resp)
 
-    # 5. Finance Info
+    # Finance Info
     if "balance" in user_query:
         bank_accounts = user.get("bank_accounts", [])
-        if bank_accounts:
-            balances = [f"{acc['bank_name']}: ₹{acc['balance']:,}" for acc in bank_accounts]
-            resp.message("🏦 Your Bank Balances:\n" + "\n".join(balances))
-        else:
+        if not bank_accounts:
             resp.message("❗No bank account data found.")
+        elif len(bank_accounts) > 1:
+            user_states[phone_number] = {"waiting_for_bank": "balance"}
+            resp.message("🤖 You have multiple accounts. Please type the bank name (like HDFC, ICICI):")
+        else:
+            acc = bank_accounts[0]
+            resp.message(f"🏦 Your balance in {acc['bank_name']}: ₹{acc['balance']:,}")
         return str(resp)
 
     if "income" in user_query:
@@ -254,19 +258,19 @@ def whatsapp_reply():
         resp.message(f"📈 Investment Interest: {user.get('investment_interest', 'Unknown')}")
         return str(resp)
 
-    # 6. Fallback to Cohere
+    # AI fallback
     prompt = f"You are GenFinBot, a financial expert.\nUser: {message_body}\nGenFinBot:"
     response = co.generate(model="command", prompt=prompt, max_tokens=200)
     ai_reply = response.generations[0].text.strip()
 
     users_collection.update_one(
-    {"phone_number": phone_number},
-    {
-        "$push": {"previous_queries": message_body},
-        "$set": {"last_ai_response": ai_reply}
-    },
-    upsert=True
-)
+        {"phone_number": phone_number},
+        {
+            "$push": {"previous_queries": message_body},
+            "$set": {"last_ai_response": ai_reply}
+        },
+        upsert=True
+    )
 
     resp.message(ai_reply)
     return str(resp)
