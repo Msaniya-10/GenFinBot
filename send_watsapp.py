@@ -259,7 +259,7 @@ def whatsapp_reply():
         resp.message(f"📉 Monthly Expenses: ₹{user.get('expenses_monthly', 0):,}")
         return str(resp)
 
-    if "loan" in user_query:
+    if "loan status" in user_query:
         resp.message(f"🏦 Loan Status: {user.get('loan_status', 'Unknown')}")
         return str(resp)
 
