@@ -134,7 +134,7 @@ def whatsapp_reply():
                 resp.message("❗Please enter a valid number for age:")
             return str(resp)
 
-        elif isinstance(state, dict) and "age" in state and "income" not in state:
+        elif isinstance(state, dict) and "age" in state and "income_monthly" not in state:
             try:
                 income = int(message_body)
                 state["income_monthly"] = income
@@ -144,17 +144,17 @@ def whatsapp_reply():
                 resp.message("❗Please enter a valid number for income:")
             return str(resp)
 
-        elif isinstance(state, dict) and "income_monthly" in state and "expenses_monthly" not in state:
+        elif isinstance(state, dict) and "income_monthly" in state and "expenses" not in state:
             try:
                 expenses = int(message_body)
-                state["expenses_monthly"] = expenses
+                state["expenses"] = expenses
                 user_states[phone_number] = state
                 resp.message("💳 What's your credit score?")
             except ValueError:
                 resp.message("❗Please enter a valid number for expenses:")
             return str(resp)
 
-        elif isinstance(state, dict) and "expenses_monthly" in state and "credit_score" not in state:
+        elif isinstance(state, dict) and "expenses" in state and "credit_score" not in state:
             try:
                 credit_score = int(message_body)
                 state["credit_score"] = credit_score
