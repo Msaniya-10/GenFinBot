@@ -116,7 +116,7 @@ def whatsapp_reply():
                 resp.message("❗Please enter a valid number for income:")
             return str(resp)
 
-        elif isinstance(state, dict) and "income_monthly" in state and "expenses" not in state:
+        elif isinstance(state, dict) and "income_monthly" in state and "expenses_monthly" not in state:
             try:
                 expenses = int(message_body)
                 state["expenses_monthly"] = expenses
@@ -125,6 +125,7 @@ def whatsapp_reply():
             except ValueError:
                 resp.message("❗Please enter a valid number for expenses:")
             return str(resp)
+
 
         elif isinstance(state, dict) and "expenses_monthly" in state and "credit_score" not in state:
             try:
