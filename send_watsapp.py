@@ -276,10 +276,42 @@ def whatsapp_reply():
         resp.message("Mention valid company name like Apple, Amazon, Infosys.")
         return str(resp)
 
-    # 🚀 7. Cohere fallback
-    prompt = f"You are GenFinBot, an intelligent financial bot.\nUser: {message_body}\nGenFinBot:"
-    ai = co.generate(model="command", prompt=prompt, max_tokens=200)
-    resp.message(ai.generations[0].text.strip())
+    # 🚀 7. Cohere fallback with personalized prompting
+    age = user.get("age", "unknown")
+    income = user.get("income_monthly", "unknown")
+    expenses = user.get("expenses_monthly", "unknown")
+    credit_score = user.get("credit_score", "unknown")
+    loan_status = user.get("loan_status", "unknown")
+    investment_pref = user.get("investment_interest", "unknown")
+
+    # Safely format income/expenses
+    def format_number(val):
+        if isinstance(val, (int, float)):
+            return f"₹{val:,}"
+        else:
+            return str(val)
+
+    context_info = (
+        f"The user is {age} years old with a monthly income of {format_number(income)} and monthly expenses of {format_number(expenses)}. "
+        f"The user's credit score is {credit_score}, loan status is '{loan_status}', and investment interest is '{investment_pref}'."
+    )
+
+    personalized_prompt = (
+        f"You are GenFinBot, an intelligent financial assistant.\n"
+        f"{context_info}\n"
+        f"User: {message_body}\n"
+        f"GenFinBot:"
+    )
+
+    response = co.generate(model='command', prompt=personalized_prompt, max_tokens=200)
+    ai_reply = response.generations[0].text.strip()
+
+    users_collection.update_one(
+        {"phone_number": phone_number},
+        {"$push": {"previous_queries": message_body}, "$set": {"last_ai_response": ai_reply}}
+    )
+
+    resp.message(ai_reply)
     return str(resp)
 
 if __name__ == "__main__":
