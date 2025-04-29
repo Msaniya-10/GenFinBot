@@ -18,6 +18,9 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 SUPPORT_EMAIL = os.getenv("EMAIL_RECEIVER")
 T12_API_KEY = os.getenv("T12_API_KEY")
 
+# In-memory registration tracker
+user_states = {}
+
 # Setup
 app = Flask(__name__)
 client = MongoClient(MONGO_URL)
@@ -116,9 +119,130 @@ def whatsapp_reply():
 
     user = users_collection.find_one({"phone_number": phone_number})
 
+    # 🔁 Registration Flow for New Users
     if not user:
-        resp.message("❗You are not a registered user in the system.")
-        return str(resp)
+        state = user_states.get(phone_number, {"step": "greet"})
+
+        if state["step"] == "greet":
+            user_states[phone_number] = {"step": "name"}
+            resp.message("👋 Hello! It looks like you're new here. Let's get you registered. What is your full name?")
+            return str(resp)
+
+        elif state["step"] == "name":
+            state["name"] = message_body.strip()
+            state["step"] = "age"
+            user_states[phone_number] = state
+            resp.message("🎂 Enter your age:")
+            return str(resp)
+
+        elif state["step"] == "age":
+            try:
+                state["age"] = int(message_body.strip())
+                state["step"] = "income"
+                resp.message("💼 What's your monthly income?")
+            except:
+                resp.message("❗ Please enter a valid number for age:")
+            return str(resp)
+
+        elif state["step"] == "income":
+            try:
+                state["income_monthly"] = int(message_body.strip())
+                state["step"] = "expenses"
+                resp.message("📉 Enter your monthly expenses:")
+            except:
+                resp.message("❗ Please enter a valid number for income:")
+            return str(resp)
+
+        elif state["step"] == "expenses":
+            try:
+                state["expenses_monthly"] = int(message_body.strip())
+                state["step"] = "credit_score"
+                resp.message("💳 Enter your credit score:")
+            except:
+                resp.message("❗ Please enter a valid number for expenses:")
+            return str(resp)
+
+        elif state["step"] == "credit_score":
+            try:
+                state["credit_score"] = int(message_body.strip())
+                state["step"] = "loan_status"
+                resp.message("📄 What is your loan status? (Open/Closed):")
+            except:
+                resp.message("❗ Please enter a valid number for credit score:")
+            return str(resp)
+
+        elif state["step"] == "loan_status":
+            loan = message_body.strip().lower()
+            if loan not in ["open", "closed"]:
+                resp.message("❗ Please enter 'Open' or 'Closed' for loan status.")
+                return str(resp)
+            state["loan_status"] = loan.capitalize()
+            state["step"] = "investment"
+            resp.message("📈 What are you interested in investing in?")
+            return str(resp)
+
+        elif state["step"] == "investment":
+            state["investment_interest"] = message_body.strip()
+            state["step"] = "num_accounts"
+            resp.message("🏦 How many bank accounts do you have?")
+            return str(resp)
+
+        elif state["step"] == "num_accounts":
+            try:
+                count = int(message_body.strip())
+                state["remaining_accounts"] = count
+                state["bank_accounts"] = []
+                state["step"] = "bank_name"
+                resp.message("🔁 Let's start. Enter Bank Name for Account 1:")
+            except:
+                resp.message("❗ Please enter a valid number of accounts:")
+            return str(resp)
+
+        elif state["step"] == "bank_name":
+            state["current_account"] = {"bank_name": message_body.strip()}
+            state["step"] = "account_number"
+            resp.message("🔢 Enter Account Number:")
+            return str(resp)
+
+        elif state["step"] == "account_number":
+            acc = message_body.strip()
+            masked = "X" * (len(acc) - 4) + acc[-4:]
+            state["current_account"]["account_number"] = masked
+            state["step"] = "account_type"
+            resp.message("📘 Enter Account Type (Saving/Current):")
+            return str(resp)
+
+        elif state["step"] == "account_type":
+            state["current_account"]["account_type"] = message_body.strip()
+            state["step"] = "balance"
+            resp.message("💰 Enter Account Balance:")
+            return str(resp)
+
+        elif state["step"] == "balance":
+            try:
+                state["current_account"]["balance"] = int(message_body.strip())
+                state["bank_accounts"].append(state["current_account"])
+                state.pop("current_account")
+                state["remaining_accounts"] -= 1
+
+                if state["remaining_accounts"] > 0:
+                    account_no = len(state["bank_accounts"]) + 1
+                    state["step"] = "bank_name"
+                    resp.message(f"🏦 Enter Bank Name for Account {account_no}:")
+                else:
+                    final_user = {
+                        "phone_number": phone_number,
+                        "telegram_id": "Not Linked",
+                        "priority": "normal",
+                        "previous_queries": [],
+                        **{k: v for k, v in state.items() if k not in ["step", "remaining_accounts"]}
+                        }
+                    users_collection.insert_one(final_user)
+                    user_states.pop(phone_number)
+                    resp.message("✅ Registration complete! You can now ask anything like 'balance', 'credit score', or 'Can I get a loan?' 💬")
+            except:
+                resp.message("❗ Please enter a valid number for balance:")
+            return str(resp)
 
     users_collection.update_one(
         {"phone_number": phone_number},
